@@ -1,15 +1,18 @@
 theme: jekyll-theme-minimal
-title: Title
-description: This is all about something
-show_downloads: True
+title: Istio Hands-On
+description: Learning about Istio's capabilities using the Bookinfo example app on Minikube as platform
+show_downloads: False
 navigation:
   - title: Overview
     url: /
-  - title: 1. Test
+  - title: 1. Setting up Minikube and Istio
     url: docs/exercise1
-  - title: 2. 
+  - title: 2. Installing Telemetry Add-ons and Bookinfo
     url: docs/exercise2
-  - title: 3. 
+  - title: 3. Traffic Management
     url: docs/exercise3
-
+  - title: 4. Observability
+    url: docs/exercise4
+  - title: 5. Test
+    url: docs/exercise5
 

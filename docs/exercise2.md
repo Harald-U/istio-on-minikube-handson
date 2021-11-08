@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 1. Setting up Minikube and Istio
+title: 2. Installing Telemetry Add-ons and Bookinfo
 ---
 
 Lorem ipsum ...

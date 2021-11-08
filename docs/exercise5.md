@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 1. Setting up Minikube and Istio
+title: 5. Test
 ---
 
 Lorem ipsum ...
