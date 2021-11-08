@@ -1,0 +1,15 @@
+theme: jekyll-theme-minimal
+title: Title
+description: This is all about something
+show_downloads: True
+navigation:
+  - title: Overview
+    url: /
+  - title: 1. Test
+    url: docs/exercise1
+  - title: 2. 
+    url: docs/exercise2
+  - title: 3. 
+    url: docs/exercise3
+
+
