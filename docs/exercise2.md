@@ -114,8 +114,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     ```
     $ export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
     $ export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
-    $ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
-    $ echo http://$GATEWAY_URL/productpage
+    $ echo http://$INGRESS_HOST:$INGRESS_PORT/productpage
     http://10.107.101.80:80/productpage
     ```
 

@@ -15,4 +15,5 @@ navigation:
     url: docs/exercise4
   - title: 5. Traffic Management 2
     url: docs/exercise5
-
+  - title: APPENDIX - Important commands
+    url: docs/appendix
