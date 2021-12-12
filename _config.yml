@@ -1,18 +1,18 @@
 theme: jekyll-theme-minimal
 title: Istio Hands-On
-description: Learning about Istio's capabilities using the Bookinfo example app on Minikube as platform
+description: Manage Microservice Communication with Kubernetes and Istio Service Mesh
 show_downloads: False
 navigation:
   - title: Overview
     url: /
   - title: 1. Setting up Minikube and Istio
     url: docs/exercise1
-  - title: 2. Installing Telemetry Add-ons and Bookinfo
+  - title: 2. Installing Bookinfo
     url: docs/exercise2
-  - title: 3. Traffic Management
+  - title: 3. Observability
     url: docs/exercise3
-  - title: 4. Observability
+  - title: 4. Traffic Management
     url: docs/exercise4
-  - title: 5. Test
+  - title: 5. Security
     url: docs/exercise5
 
