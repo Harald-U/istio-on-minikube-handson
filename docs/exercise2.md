@@ -19,7 +19,7 @@ There are 3 versions of the reviews microservice:
 
 The end-to-end architecture of the application is shown below.
 
-![Bookinfo w/o Istio](/images/bookinfo_no_istio.png)
+![Bookinfo w/o Istio](images/bookinfo_no_istio.png)
 
 This application is polyglot, i.e., the microservices are written in different languages. It’s worth noting that these services have no dependencies on Istio, but make an interesting service mesh example, particularly because of the multitude of services, languages and versions for the reviews service.
 

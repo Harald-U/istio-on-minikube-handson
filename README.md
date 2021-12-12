@@ -1,6 +1,6 @@
 # Istio on Minikube -- Hands-On
 
-Lorem ipsum ...
+
 
 This workshop is published on Github Pages [here](https://harald-u.github.io/istio-on-minikube-handson/).
 
