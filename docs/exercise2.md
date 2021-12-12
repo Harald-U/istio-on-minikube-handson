@@ -19,7 +19,7 @@ There are 3 versions of the reviews microservice:
 
 The end-to-end architecture of the application is shown below.
 
-![Bookinfo w/o Istio](/images/bookinfo_no_istio.png)
+![Bookinfo w/o Istio](../images/bookinfo_no_istio.png)
 
 This application is polyglot, i.e., the microservices are written in different languages. It’s worth noting that these services have no dependencies on Istio, but make an interesting service mesh example, particularly because of the multitude of services, languages and versions for the reviews service.
 
@@ -29,7 +29,7 @@ To run the sample with Istio requires no changes to the application itself. Inst
 
 In the previous Exercise 1, section "Installing Istio", the last step was to label the `default` namespace with `istio-injection=enabled`. With this label in place, every pod deployed into the `default` namespace gets an "Envoy" sidecar injected along side each service. The resulting deployment will look like this:
 
-![Bookinfo w/o Istio](/images/bookinfo_w_istio.png)
+![Bookinfo w/o Istio](../images/bookinfo_w_istio.png)
 
 This picture also shows that external communication will pass through the Istio Ingress and its associated Ingress Envoy.
 
@@ -123,7 +123,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 
     Open this URL in your browser and you should see the Bookinfo application in all its splendour:
 
-    ![Bookinfo UI](/images/bookinfo_ui.png)
+    ![Bookinfo UI](../images/bookinfo_ui.png)
 
     Refresh the page several times and watch Book Reviews section: 
     * no stars = v1

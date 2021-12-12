@@ -54,11 +54,11 @@ $ kubectl port-forward service/tracing  8008:80 -n istio-system
 2. As service, select 'istio-ingressgateway.istio-system'.
 3. Click on 'Find Traces'.
 
-    ![Jaeger UI](/images/jaeger1.png)
+    ![Jaeger UI](../images/jaeger1.png)
 
 4. Click on one of the trace entries to see the details:
 
-    ![Jaeger Details](/images/jaeger2.png)
+    ![Jaeger Details](../images/jaeger2.png)
 
     On the left side you can see how the request is passed through the different services: coming in via Istio Ingress, Productpage to Details, back to Productpage, Productpage to Reviews, Reviews to Ratings. An the graph shows how much time is being spent in each service.
 
@@ -75,11 +75,11 @@ $ kubectl port-forward service/grafana  3000:3000 -n istio-system
 1. In a browser open the Grafana UI at http://localhost:3000/
 2. Click on the Looking Glas (search), click on the Istio folder, then select the Istio Performance Dashboard
 
-    ![Grafana UI](/images/grafana1.png)
+    ![Grafana UI](../images/grafana1.png)
 
     This is general performance information collected from the service mesh:
 
-    ![Grafana Details](/images/grafana2.png)
+    ![Grafana Details](../images/grafana2.png)
 
 3. Look at the other Grafana Dashboards.    
 
@@ -97,11 +97,11 @@ $ kubectl port-forward service/prometheus 9090:9090 -n istio-system
 2. In the Query field start to type 'istio_requests_total'. When you start to type, Prometheus will generate a list of predefined metrics queries.
 3. Select 'istio_requests_total', the click 'Execute' and select the 'Graph' tab.
 
-    ![Prometheus UI](/images/prometheus1.png)
+    ![Prometheus UI](../images/prometheus1.png)
 
     This is simply a cumulative graph of all requests:
 
-    ![Prometheus Details](/images/prometheus2.png)
+    ![Prometheus Details](../images/prometheus2.png)
 
 When you are finished with Prometheus, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+.)
 
@@ -116,17 +116,17 @@ $ kubectl port-forward service/kiali 20001:20001 -n istio-system
 1. In a browser open the Kiali dashboard at http://localhost:20001/
 2. Click on the 'Graph' tab, slect the 'default' namespace, and in the 'Display' pulldown, select 'Traffic Distribution'
 
-    ![Kiali UI](/images/kiali1.png)
+    ![Kiali UI](../images/kiali1.png)
 
 3. You can now see a graphical representation of your micro services including the distribution of requests amongst your services.
     Watch the distribution of requests amongst the 3 versions the Reviews service: 1/3 = 33.3 % go to each of the versions: equal distribution or "round robin".
     Also note that only v2 and v3 are making requests to the Ratings service.
 
-    ![Kiali Details](/images/kiali2.png)
+    ![Kiali Details](../images/kiali2.png)
 
 4. Click on the 'Istio Config' tab:
 
-    ![Kiali Config](/images/kiali3.png)
+    ![Kiali Config](../images/kiali3.png)
 
     Here you can see the Istio specific configuration applied to your microservices. In Exercise 2, step '2 Allow external access to application' you deployed a configuration from file 'samples/bookinfo/networking/bookinfo-gateway.yaml'. This YAML contains the specifications for the Gateway and VirtualService. We will look at hem more closely in the next exercise.
 
