@@ -229,7 +229,7 @@ In this task, you will use send 50% of traffic to reviews:v1 and 50% to reviews:
 
 4. Look at the Kiali dashboard:
 
-    ![Kiali v1 only](..../images/kiali4.png)
+    ![Kiali v1 only](../images/kiali4.png)
 
 5. Transfer 50% of the traffic from reviews:v1 to reviews:v3 with the following command:
 
@@ -244,7 +244,7 @@ In this task, you will use send 50% of traffic to reviews:v1 and 50% to reviews:
 
 7. Look at the Kiali dashboard:
 
-    ![Kiali v1 and v3](..../images/kiali5.png)
+    ![Kiali v1 and v3](../images/kiali5.png)
 
     It will take a while until the distribution between v1 and v3 are getting close to 50% / 50 %.
 
