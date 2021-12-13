@@ -13,7 +13,7 @@ _Istio’s traffic management model relies on the Envoy proxies that are deploye
 
 In Exercise 2, step 2 "Allow external access to application" you have applied an Istio configuration from the file `samples/bookinfo/networking/bookinfo-gateway.yaml`. Now we want to look at it. It has 2 parts:
 
-#### Part 1: [Gateway &#10162;](https://istio.io/latest/docs/concepts/traffic-management/#gateways) 
+#### Part 1: Gateway [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#gateways) 
 
 The gateway or ingress gateway is a form of load balancer that receives incoming HTTP or TCP connections. It configures exposed ports and protocols and contains the "host" name which is the domain main the gateway is supposed to answer.
 
@@ -39,7 +39,7 @@ spec:
 1. The selector "istio: ingressgateway" maps to the istio-ingressgateway deployment in the istio-system namespace.
 2. The servers section specifies HTTP protocol on port 80 and what is called a "wildcard" host "*". This means that this gateway will direct HTTP requests (unencrypted) on any IP address or domain name. This is actually bad practice but helps keeping this exercise relatively simple.
 
-#### Part 2: [Virtual Service &#10162;](https://istio.io/latest/docs/concepts/traffic-management/#virtual-services) 
+#### Part 2: Virtual Service [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#virtual-services) 
 
 A Virtual Service is used to configure the Istio traffic routing. Normally, you would use an Istio Virtual Service to add traffic routing rules to a Kubernetes service. Here we use it to configure an Istio Gateway.
 
@@ -82,7 +82,7 @@ The configuration specifies:
 
 To access our Bookinfo sample app in the browser, we use the '/productpage' URI which routes to the productpage deployment on port 9080.
 
-## [Destination Rules &#10162;](https://istio.io/latest/docs/concepts/traffic-management/#destination-rules)
+## Destination Rules [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#destination-rules)
 
 _Along with virtual services, destination rules are a key part of Istio’s traffic routing functionality. You can think of virtual services as how you route your traffic to a given destination, and then you use destination rules to configure what happens to traffic for that destination. Destination rules are applied after virtual service routing rules are evaluated, so they apply to the traffic’s “real” destination._
 

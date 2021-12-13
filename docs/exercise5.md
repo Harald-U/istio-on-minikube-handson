@@ -3,7 +3,7 @@ layout: default
 title: 5. Traffic Management 2
 ---
 
-## [Request Routing &#10162;](https://istio.io/latest/docs/tasks/traffic-management/request-routing/)
+## Request Routing [&#10162;](https://istio.io/latest/docs/tasks/traffic-management/request-routing/)
 
 Remember: The Istio Bookinfo sample consists of four separate microservices. Three different versions of one of the Reviews microservice have been deployed and are running concurrently. To illustrate the problem this causes, access the Bookinfo app’s /productpage in a browser and refresh several times. You’ll notice that sometimes the book review output contains star ratings and other times it does not, sometimes the stars are black, sometimes red. This is because without an explicit default service version to route to, Istio routes requests to all available versions in a round robin fashion.
 
@@ -87,7 +87,7 @@ There are endless possibilities with this:
 * You could secure your application with an Identity and Access Management system like Keycloak and offer different features in your application simply by evaluating HTTP Header settings added by Keycloak.
 * You can display different versions of your application depending on the make of the Browser you use or the language version requested
 
-## [Traffic Shifting &#10162;](https://istio.io/latest/docs/tasks/traffic-management/traffic-shifting/) using Weight-based Routing
+## Traffic Shifting [&#10162;](https://istio.io/latest/docs/tasks/traffic-management/traffic-shifting/) using Weight-based Routing
 
 A common use case is to migrate traffic gradually from an older version of a microservice to a new one. In Istio, you accomplish this goal by configuring a sequence of routing rules that redirect a percentage of traffic from one destination to another.
 
@@ -149,6 +149,76 @@ spec:
 In a real life situation, you would probably begin with a weight 99 for v1 and weight 1 for v3 (99:1 distribution) and gradually lower weight for v1 and increase weight for v3 until you are confident that v3 works well.
 
 
+## Fault Injection [&#10162;](https://istio.io/latest/docs/tasks/traffic-management/fault-injection/)
+
+Resiliency is an important aspect of any type of application: if something goes wrong, the application should handle it in a sensible manner. Simply terminating or displaying a stack trace to your end users is not a good option. This is critical for microservices because there is a lot of communication between the services, especially if there are external services involved. How can you test the behaviour of your microservices in case of an error? With Istio Fault Injection!
+
+Fault Injection allows to introduce artificial problems into a perfectly healthy application. This includes:
+
+* HTTP delays: a microservice responds to a request after x seconds, simulating a comms or performance problem
+* HTTP abort: a request is terminated with a HTTP 5xx error, simulating a server error
+
+We will test an example of an HTTP abort fault.
+
+First "reset" your configuration:
+
+```
+$ kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
+$ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
+```
+
+We have used the second configuration before: user jason uses v2 of Reviews, everybody else uses v1.
+
+Now create a fault injection rule to send an HTTP abort for user jason:
+
+```
+$ kubectl apply -f samples/bookinfo/networking/virtual-service-ratings-test-abort.yaml
+```
+
+If you test the application as user jason now, you will see the error "Ratings service is currently unavailable". This is a simple example for resiliency: there is nothing you can do about the service being unavailable but your users get comprehensible information and not a cryptic error code.
+
+![HTTP Abort](../images/http_abort.png)
+
+And this is the configuration we just applied:
+
+```
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: ratings
+spec:
+  hosts:
+  - ratings
+  http:
+  - match:
+    - headers:
+        end-user:
+          exact: jason
+    fault:
+      abort:
+        percentage:
+          value: 100.0
+        httpStatus: 500
+    route:
+    - destination:
+        host: ratings
+        subset: v1
+  - route:
+    - destination:
+        host: ratings
+        subset: v1
+```
+
+There is a matching rule for end-user jason. This user gets a fault of type abort, resulting in a HTTP 500 error code every time (value: 100.0) the Ratings service is called.
+
+As you can see, Istio allows the errors to be random if you choose a percentage lower than 100.
+
+Have a look at Kiali, too. It can show you areas of trouble at a glance:
+
+![Kiali HTTP 500](../images/kiali6.png)
+
 ---
 
 **Congratulations, you made it! This concludes our workshop.**
+
+There is a lot more that Istio can do but we only have limited time for this hads-on. If you are interested have a look at the [Istio documentation](https://istio.io/docs).
