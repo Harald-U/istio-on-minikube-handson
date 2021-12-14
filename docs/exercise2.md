@@ -11,15 +11,15 @@ The Bookinfo application is broken into four separate microservices:
 * **details:** The details microservice contains book information.
 * **reviews:** The reviews microservice contains book reviews. It also calls the ratings microservice.
 * **ratings:** The ratings microservice contains book ranking information that accompanies a book review.
+
+This is the end-to-end architecture of the application:
+
+![Bookinfo w/o Istio](../images/bookinfo_no_istio.png)
   
 There are 3 versions of the reviews microservice:
 * **Version v1** doesn’t call the ratings service.
 * **Version v2** calls the ratings service and displays each rating as 1 to 5 black stars.
 * **Version v3** calls the ratings service and displays each rating as 1 to 5 red stars.
-
-The end-to-end architecture of the application is shown below.
-
-![Bookinfo w/o Istio](../images/bookinfo_no_istio.png)
 
 This application is polyglot, i.e., the microservices are written in different languages. It’s worth noting that these services have no dependencies on Istio, but make an interesting service mesh example, particularly because of the multitude of services, languages and versions for the reviews service.
 
@@ -79,11 +79,8 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 2. Create a LoadBalancer in Minikube: 
 
     ```
-    $ kubectl get service -n istio-system
-    ...
+    $ kubectl get service -n istio-system | grep ingress
     istio-ingressgateway   LoadBalancer   10.107.101.80  <pending> ...   
-    ...
-    ...
     ```
 
     The ingressgateway is a Kubernetes service of type LoadBalancer. A real Load Balancer is not available on Minikube (hence the 'pending' status), but we can fake one.
@@ -101,10 +98,8 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     Now repeat:
 
     ```
-    $ kubectl get service -n istio-system
-    ...
+    $ kubectl get service -n istio-system | grep ingress
     istio-ingressgateway   LoadBalancer   10.107.101.80    10.107.101.80  ...   
-    ...
     ```
 
     You can see that the LoadBalancer now has an external IP address which identical to the internal (CLUSTER-IP) one. Thanks to the 'minikube tunnel' still running in the other session, this internal address is suddenly reachable from your workstation. 

@@ -50,7 +50,7 @@ To start the Port Forwarding issue the following command in a seperate session (
 $ kubectl port-forward service/tracing  8008:80 -n istio-system 
 ```
 
-1. In a browser open the Jaeger UI at http://localhost:8008/.
+1. In a browser open the Jaeger UI at [http://localhost:8008/](http://localhost:8008/).
 2. As service, select 'istio-ingressgateway.istio-system'.
 3. Click on 'Find Traces'.
 
@@ -64,27 +64,6 @@ $ kubectl port-forward service/tracing  8008:80 -n istio-system
 
 When you are finished with Jaeger, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+.)
 
-### Grafana
-
-To start the Port Forwarding issue the following command in a seperate session (and keep it running):
-
-```
-$ kubectl port-forward service/grafana  3000:3000 -n istio-system 
-```
-
-1. In a browser open the Grafana UI at http://localhost:3000/
-2. Click on the Looking Glas (search), click on the Istio folder, then select the Istio Performance Dashboard
-
-    ![Grafana UI](../images/grafana1.png)
-
-    This is general performance information collected from the service mesh:
-
-    ![Grafana Details](../images/grafana2.png)
-
-3. Look at the other Grafana Dashboards.    
-
-When you are finished with Grafana, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+.)
-
 ### Prometheus
 
 To start the Port Forwarding issue the following command in a seperate session (and keep it running):
@@ -93,7 +72,7 @@ To start the Port Forwarding issue the following command in a seperate session (
 $ kubectl port-forward service/prometheus 9090:9090 -n istio-system 
 ```
 
-1. In a browser open the Prometheus UI at http://localhost:9090/
+1. In a browser open the Prometheus UI at [http://localhost:9090/](http://localhost:9090/)
 2. In the Query field start to type 'istio_requests_total'. When you start to type, Prometheus will generate a list of predefined metrics queries.
 3. Select 'istio_requests_total', the click 'Execute' and select the 'Graph' tab.
 
@@ -105,6 +84,29 @@ $ kubectl port-forward service/prometheus 9090:9090 -n istio-system
 
 When you are finished with Prometheus, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+.)
 
+### Grafana
+
+To start the Port Forwarding issue the following command in a seperate session (and keep it running):
+
+```
+$ kubectl port-forward service/grafana  3000:3000 -n istio-system 
+```
+
+1. In a browser open the Grafana UI at [http://localhost:3000/](http://localhost:3000/)
+2. Click on the Looking Glas (search), click on the Istio folder, then select the Istio Performance Dashboard
+
+    ![Grafana UI](../images/grafana1.png)
+
+    This is general performance information collected from the service mesh:
+
+    ![Grafana Details](../images/grafana2.png)
+
+3. Look at the other Grafana Dashboards.    
+
+**Note:** In some of the dashboards you can see a "datasource" selector. There is a default data source selected. When you click on the pulldown you can see that there is one (1) datasource available and that is Prometheus. This means that Grafana needs the Prometheus data to display its dashboards.
+
+When you are finished with Grafana, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+.)
+
 ### Kiali
 
 To start the Port Forwarding issue the following command in a seperate session (and keep it running):
@@ -113,7 +115,7 @@ To start the Port Forwarding issue the following command in a seperate session (
 $ kubectl port-forward service/kiali 20001:20001 -n istio-system
 ```
 
-1. In a browser open the Kiali dashboard at http://localhost:20001/
+1. In a browser open the Kiali dashboard at [http://localhost:20001/](http://localhost:20001/)
 2. Click on the 'Graph' tab, slect the 'default' namespace, and in the 'Display' pulldown, select 'Traffic Distribution'
 
     ![Kiali UI](../images/kiali1.png)
@@ -132,8 +134,6 @@ $ kubectl port-forward service/kiali 20001:20001 -n istio-system
 
 
 You can keep Kiali and the corresponding Port Forward session open since we will use it frequently.
-
-
 
 ---
 

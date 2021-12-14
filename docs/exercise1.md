@@ -24,7 +24,7 @@ This workshop is based on Istio version 1.12.0  (which was released in December 
 Official instructions can be found [here](https://istio.io/latest/docs/setup/getting-started/).
 
 1. Create a new directory in your home directory, e.g. 'vs' and change into it
-2. Download Istio 1.12.0
+2. Download Istio 1.12.0:
    
     ```
 	$ curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.12.0 TARGET_ARCH=x86_64 sh -
