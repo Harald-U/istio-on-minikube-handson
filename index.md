@@ -33,6 +33,12 @@ These are the exercises of this workshop, go through all of them in sequence:
 * Exercise 4: [Traffic Management](docs/exercise4)
 * Exercise 5: [Security](docs/exercise5)
 
+## Software used
+
+This hands-on workshop was created and tested with
+
+* Minikube v1.24.0 (includes Kubernetes v1.22.3) 
+* Istio v1.12.0
 
 ## Credits
 
