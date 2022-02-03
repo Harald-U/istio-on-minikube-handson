@@ -219,6 +219,14 @@ Have a look at Kiali, too. It can show you areas of trouble at a glance:
 
 ---
 
+# Clean up
+
+If you no longer need your Minikube cluster you can simply delete it with:
+
+```
+$ minikube delete
+```
+
 **Congratulations, you made it! This concludes our workshop.**
 
-There is a lot more that Istio can do but we only have limited time for this hads-on. If you are interested have a look at the [Istio documentation](https://istio.io/docs).
+There is a lot more that Istio can do but we only have limited time for this hands-on. If you are interested have a look at the [Istio documentation](https://istio.io/docs).
