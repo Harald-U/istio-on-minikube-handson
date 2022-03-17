@@ -5,7 +5,7 @@ title: Overview
 
 Kubernetes helps managing microservice based applications through self-healing (by minimizing outages and disruptions), intelligent scheduling, horizontal scaling, and load balancing.
 
-[Istio](https://istio.io) is an addition to Kubernetes, also known as a service mesh. It is an open platform to connect, secure, control and observe microservices, . With Istio, you can manage network traffic, load balance across microservices, enforce access policies, verify service identity, secure service communication, and observe exactly what is going on with your services.
+[Istio](https://istio.io) is an addition to Kubernetes, also known as a service mesh. It is an open platform to connect, secure, control and observe microservices. With Istio, you can manage network traffic, load balance across microservices, enforce access policies, verify service identity, secure service communication, and observe exactly what is going on with your services.
 
 In this workshop, you will learn how to install and use Istio alongside microservices using the Istio sample application [Bookinfo](https://istio.io/latest/docs/examples/bookinfo/). 
 
@@ -31,7 +31,7 @@ These are the exercises of this workshop, go through all of them in sequence:
 * Exercise 2: [Installing Bookinfo](docs/exercise2)
 * Exercise 3: [Observability](docs/exercise3)
 * Exercise 4: [Traffic Management](docs/exercise4)
-* Exercise 5: [Security](docs/exercise5)
+* Exercise 5: [Traffic Management cont'd](docs/exercise5)
 
 ## Software used
 
