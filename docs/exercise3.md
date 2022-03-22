@@ -32,7 +32,7 @@ $ kubectl get svc -n istio-system
 
 You can see that none of the Telemetry services is of type LoadBalancer or NodePort which means they are not accessible from the outside. In the following examples we will use Kubernetes [port-forwarding](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward) to compensate for this.
 
-But first start to generate some load on your Bookinfo instance. In yet another new session enter the following commands:
+But first **start to generate some load** on your Bookinfo instance. In yet another new session enter the following commands:
 
 ```
 $ export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
@@ -130,7 +130,7 @@ $ kubectl port-forward service/kiali 20001:20001 -n istio-system
 
     ![Kiali Config](../images/kiali3.png)
 
-    Here you can see the Istio specific configuration applied to your microservices. In Exercise 2, step '2 Allow external access to application' you deployed a configuration from file 'samples/bookinfo/networking/bookinfo-gateway.yaml'. This YAML contains the specifications for the Gateway and VirtualService. We will look at hem more closely in the next exercise.
+    Here you can see the Istio specific configuration applied to your microservices. In Exercise 2, step '2 Allow external access to application' you deployed a configuration from file 'samples/bookinfo/networking/bookinfo-gateway.yaml'. This YAML contains the specifications for the Gateway and VirtualService. We will look at them more closely in the next exercise.
 
 
 You can keep Kiali and the corresponding Port Forward session open since we will use it frequently.

@@ -9,7 +9,7 @@ Remember: The Istio Bookinfo sample consists of four separate microservices. Thr
 
 This task shows you how to route requests dynamically to multiple versions of a microservice (Reviews, version v1, v2, or v3).
 
-To route to one version only, you apply virtual services that set the default version for the microservices. In this case, the virtual services will route all traffic to v1 of each microservice.
+To route to one version only, you apply a virtual service configuration that sets the default version of the microservice. In this case, the virtual service configurations will route all traffic only to v1 of each microservice.
 
 Run the following command to apply the virtual services:
 
