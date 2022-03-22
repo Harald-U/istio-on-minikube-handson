@@ -15,7 +15,15 @@ $ minikube start --cpus 2 --memory 4096 --driver docker
 
 This will start an instance with 2 virtual CPUs, 4 GB om RAM, using Docker (Desktop) as your virtualization platform.
 
-**Note:** According to the [Istio documentation](https://istio.io/latest/docs/setup/platform-setup/minikube/) a Minikube instance with at least 4 virtual CPUs and 16 GB of RAM is required. This is impossible on resource challenged workstations. I have tested the smaller configuration and it works but of course will not win a price for high performance.
+**NOTE: bwLehrpool** has sufficient RAM to increase memory for Minikube, you can use this command instead:
+
+```
+$ minikube start --cpus 2 --memory 6144 --driver docker
+```
+
+which will assign 6 GB of RAM.
+
+**Note:** According to the [Istio documentation](https://istio.io/latest/docs/setup/platform-setup/minikube/) a Minikube instance with at least 4 virtual CPUs and 16 GB of RAM is required. I have tested this workshop with the smaller configuration and it works but of course will not win a price for high performance.
 
 ### 2 Install Istio
 
