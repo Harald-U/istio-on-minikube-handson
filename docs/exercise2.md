@@ -78,16 +78,20 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 
 2. Create a LoadBalancer in Minikube: 
 
+    Check the external IP address of the Istio ingressgateway:
+
     ```
     $ kubectl get service -n istio-system | grep ingress
     istio-ingressgateway   LoadBalancer   10.107.101.80  <pending> ...   
     ```
 
-    The ingressgateway is a Kubernetes service of type LoadBalancer. A real Load Balancer is not available on Minikube (hence the 'pending' status), but we can fake one.
+    It will show 'pending' for the external IP address. The ingressgateway is a Kubernetes service of type LoadBalancer. A real Load Balancer is not available on Minikube (hence the 'pending' status), but we can fake one.
+
 
     **Note:** In public managed cloud environments (e.g. IBM Cloud) a Kubernetes service of type LoadBalancer usually gets a public (= routable in the Internet) IP address assigned automatically if one is available in the account. You can then map this public IP address to a fully qualified domain name (FQDN) in the DNS (Domain Name System) and make your Istio Ingress controller answer HTTP requests via the Internet. 
 
-3. In a **new terminal session** enter:
+
+    In a **new terminal session** enter:
 
     ```
     $ minikube tunnel
@@ -95,7 +99,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 
     When requested, authenticate. **Keep this session open and active!**
 
-    Now repeat:
+    Now repeat the command:
 
     ```
     $ kubectl get service -n istio-system | grep ingress
@@ -104,7 +108,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 
     You can see that the LoadBalancer now has an external IP address which identical to the internal (CLUSTER-IP) one. Thanks to the 'minikube tunnel' still running in the other session, this internal address is suddenly reachable from your workstation. 
 
-4. Access the Bookinfo application:
+3. Access the Bookinfo application:
 
     ```
     $ export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
