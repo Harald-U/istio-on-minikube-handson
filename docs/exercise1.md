@@ -15,7 +15,25 @@ $ minikube start --cpus 2 --memory 4096 --driver docker
 
 This will start an instance with 2 virtual CPUs, 4 GB om RAM, using Docker (Desktop) as your virtualization platform.
 
-**NOTE: bwLehrpool** has sufficient RAM to increase memory for Minikube, you can use this command instead:
+**NOTE: bwLehrpool** 
+
+There may be a "leftover" (and damaged) Minikube instance that was present when the VMware image for the Linux environment was built.  This may cause problems. Enter the following command before you start this workshop:
+
+```
+$ minikube delete
+```
+
+Output will be most likely something like this:
+
+```
+🔥  minikube" in docker wird gelöscht...
+🔥  /home/student/.minikube/machines/minikube wird entfernt...
+💀  Removed all traces of the "minikube" cluster.
+```
+
+Please be aware that this command will delete any existing Minikube cluster!
+
+bwLehrpool has sufficient RAM to increase memory for Minikube, you can use this command instead:
 
 ```
 $ minikube start --cpus 2 --memory 6144 --driver docker
@@ -23,7 +41,7 @@ $ minikube start --cpus 2 --memory 6144 --driver docker
 
 which will assign 6 GB of RAM.
 
-**Note:** According to the [Istio documentation](https://istio.io/latest/docs/setup/platform-setup/minikube/) a Minikube instance with at least 4 virtual CPUs and 16 GB of RAM is required. I have tested this workshop with the smaller configuration and it works but of course will not win a price for high performance.
+**NOTE 2:** According to the [Istio documentation](https://istio.io/latest/docs/setup/platform-setup/minikube/) a Minikube instance with at least 4 virtual CPUs and 16 GB of RAM is required. I have tested this workshop with the smaller configuration and it works but of course will not win a price for high performance.
 
 ### 2 Install Istio
 
