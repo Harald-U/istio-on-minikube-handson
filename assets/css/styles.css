@@ -2,13 +2,13 @@ body {
   background-color: #fff;
   padding:50px;
   font: 16px/1.5 'IBM Plex Sans', sans-serif;
-  color:#595959;
+  color:#333333;
   font-weight:400;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'IBM Plex Sans Text', sans-serif;
-  color:#222;
+  color:#111;
   margin:0 0 20px;
 }
 
@@ -68,8 +68,9 @@ blockquote {
 }
 
 code, pre {
-  font-family:IBM Plex Mono, monospace;
-  color:#333;
+  font-family:IBM Plex Mono Text, monospace;
+  font-size:9px;
+  color:#333333;
 }
 
 pre {
@@ -95,7 +96,7 @@ th, td {
 
 dt {
   color:#444;
-  font-weight:500;
+  font-weight:bold;
 }
 
 th {
@@ -158,7 +159,7 @@ header ul a:active {
 
 strong {
   color:#222;
-  font-weight:500;
+  font-weight:bold;
 }
 
 header ul li + li + li {
