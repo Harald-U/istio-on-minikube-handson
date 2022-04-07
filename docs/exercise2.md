@@ -7,10 +7,10 @@ title: 2. Installing Bookinfo
 
 The Bookinfo application is broken into four separate microservices:
 
-* **productpage:** The productpage microservice calls the details and reviews microservices to populate the page.
-* **details:** The details microservice contains book information.
-* **reviews:** The reviews microservice contains book reviews. It also calls the ratings microservice.
-* **ratings:** The ratings microservice contains book ranking information that accompanies a book review.
+* The **productpage** microservice calls the details and reviews microservices to populate the page.
+* The **details** microservice contains book information.
+* The **reviews** microservice contains book reviews. It also calls the ratings microservice.
+* The **ratings** microservice contains book ranking information that accompanies a book review.
 
 This is the end-to-end architecture of the application:
 
@@ -36,13 +36,14 @@ This picture also shows that external communication will pass through the Istio 
 ### 1 Deploy the application:
 
 ```
-$ kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
 Confirm all services and pods are correctly defined and running:
 
 ```
-$ kubectl get svc
+kubectl get svc
+
 NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
 details       ClusterIP   10.110.11.198    <none>        9080/TCP   5s
 kubernetes    ClusterIP   10.96.0.1        <none>        443/TCP    49m
@@ -54,7 +55,8 @@ reviews       ClusterIP   10.105.10.132    <none>        9080/TCP   5s
 and
 
 ```
-$ kubectl get pod
+kubectl get pod
+
 NAME                             READY     STATUS    RESTARTS   AGE
 details-v1-79f774bdb9-wvjr9       2/2     Running   0          89s
 productpage-v1-6b746f74dc-zpwbk   2/2     Running   0          88s
@@ -68,12 +70,12 @@ Note container count in the 'READY' column. It shows 2 of 2 (2/2). This is an in
 
 ### 2 Allow external access to application:
 
-Now that the Bookinfo services are up and running, you need to make the application accessible from outside of your Kubernetes cluster, e.g., from a browser. An Istio Gateway is used for this purpose.
+Now that the Bookinfo services are up and running, you need to make the application accessible from outside of your Kubernetes cluster, e.g. from a browser. An Istio Gateway is used for this purpose.
 
 1. Create Istio gateway definition:
 
     ```
-    $ kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+    kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
     ```
 
 2. Create a LoadBalancer in Minikube: 
@@ -81,7 +83,8 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     Check the external IP address of the Istio ingressgateway:
 
     ```
-    $ kubectl get service -n istio-system | grep ingress
+    kubectl get service -n istio-system | grep ingress
+    
     istio-ingressgateway   LoadBalancer   10.107.101.80  <pending> ...   
     ```
 
@@ -94,7 +97,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     In a **new terminal session** enter:
 
     ```
-    $ minikube tunnel
+    minikube tunnel
     ```
 
     When requested, authenticate. **Keep this session open and active!**
@@ -102,7 +105,8 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     Now repeat the command:
 
     ```
-    $ kubectl get service -n istio-system | grep ingress
+    kubectl get service -n istio-system | grep ingress
+    
     istio-ingressgateway   LoadBalancer   10.107.101.80    10.107.101.80  ...   
     ```
 
@@ -111,10 +115,9 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 3. Access the Bookinfo application:
 
     ```
-    $ export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-    $ export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
-    $ echo http://$INGRESS_HOST:$INGRESS_PORT/productpage
-    http://10.107.101.80:80/productpage
+    export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+    export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
+    echo http://$INGRESS_HOST:$INGRESS_PORT/productpage
     ```
 
     The result of the last command is the URL for your instance of the Bookinfo application, e.g. `http://10.107.101.80:80/productpage`.

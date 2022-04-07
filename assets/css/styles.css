@@ -1,13 +1,13 @@
 body {
   background-color: #fff;
   padding:50px;
-  font: 16px/1.5 'IBM Plex Serif', serif;
+  font: 16px/1.5 'IBM Plex Sans', sans-serif;
   color:#595959;
   font-weight:400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'IBM Plex Sans Text', sans-serif;
   color:#222;
   margin:0 0 20px;
 }

@@ -11,7 +11,9 @@ _Istio’s traffic management model relies on the Envoy proxies that are deploye
 
 ## Istio Ingress Gateway 
 
-In Exercise 2, step 2 "Allow external access to application" you have applied an Istio configuration from the file `samples/bookinfo/networking/bookinfo-gateway.yaml`. Now we want to look at it. It has 2 parts:
+In Exercise 2, step 2 "Allow external access to application" you have applied an Istio configuration from the file `samples/bookinfo/networking/bookinfo-gateway.yaml`. 
+
+Now we want to look at it. It has 2 parts:
 
 #### Part 1: Gateway [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#gateways) 
 
@@ -91,7 +93,7 @@ _In particular, you use destination rules to specify named service subsets, such
 Run the following command to create default destination rules for the Bookinfo services:
 
 ```
-$ kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
+kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
 ```
 
 Look at the file, specifically at the DestinationRule for 'reviews':

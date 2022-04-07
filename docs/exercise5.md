@@ -14,7 +14,7 @@ To route to one version only, you apply a virtual service configuration that set
 Run the following command to apply the virtual services:
 
 ```
-$ kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
+kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
 ```
 
 Look at the file, specifically at the VirtualService for Reviews:
@@ -44,10 +44,10 @@ Have you noticed the "Sign in" button in the black title bar of the Bookinfo sam
 
 Open the Bookinfo sample **a second time in a private(!) browser tab** and sign in as user "jason" (small letters!) and anything for a password.
 
-Now apply a new VirtaulService definition on the Reviews service:
+Now apply a new VirtualService definition on the Reviews service:
 
 ```
-$ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
+kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
 ```
 
 Refresh the two browser sessions (private with user jason and non-private). The non-private browser still shows Reviews v1 (without stars), the private session with user jason shows Reviews v2 with black stars.
@@ -96,7 +96,7 @@ In this task, you will use send 50% of traffic to reviews:v1 and 50% to reviews:
 1. Reset the previously applied rules:
 
     ```
-    $ kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
+    kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
     ```
 
 2. Check the Bookinfo app in the browser. It should show v1 only (no stars in Reviews).
@@ -110,7 +110,7 @@ In this task, you will use send 50% of traffic to reviews:v1 and 50% to reviews:
 5. Transfer 50% of the traffic from reviews:v1 to reviews:v3 with the following command:
 
     ```
-    $ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
+    kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
     ```
 
     Wait a few seconds for the new rules to propagate.
@@ -163,19 +163,21 @@ We will test an example of an HTTP abort fault.
 First "reset" your configuration:
 
 ```
-$ kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
-$ kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
+kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
+kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
 ```
 
 We have used the second configuration before: user jason uses v2 of Reviews, everybody else uses v1.
 
-Now create a fault injection rule to send an HTTP abort for user jason:
+Now create a fault injection rule to send an **HTTP abort for user jason**:
 
 ```
-$ kubectl apply -f samples/bookinfo/networking/virtual-service-ratings-test-abort.yaml
+kubectl apply -f samples/bookinfo/networking/virtual-service-ratings-test-abort.yaml
 ```
 
-If you test the application as user jason now, you will see the error "Ratings service is currently unavailable". This is a simple example for resiliency: there is nothing you can do about the service being unavailable but your users get comprehensible information and not a cryptic error code.
+If you test the application as **user jason** now, you will see the error "Ratings service is currently unavailable". 
+
+This is a simple example for resiliency: there is nothing you can do about the service being unavailable but your users get comprehensible information and not a cryptic error code.
 
 ![HTTP Abort](../images/http_abort.png)
 
@@ -224,7 +226,7 @@ Have a look at Kiali, too. It can show you areas of trouble at a glance:
 If you no longer need your Minikube cluster you can simply delete it with:
 
 ```
-$ minikube delete
+minikube delete
 ```
 
 **Congratulations, you made it! This concludes our workshop.**

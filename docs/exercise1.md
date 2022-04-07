@@ -10,17 +10,17 @@ I am going to assume that you already have Minikube installed on your workstatio
 To start a Kubernetes instance enter the following command in a shell:
 
 ```
-$ minikube start --cpus 2 --memory 4096 --driver docker
+minikube start --cpus 2 --memory 4096 --driver docker
 ```
 
 This will start an instance with 2 virtual CPUs, 4 GB om RAM, using Docker (Desktop) as your virtualization platform.
 
-**NOTE: bwLehrpool** 
+### NOTE: bwLehrpool
 
 There may be a "leftover" (and damaged) Minikube instance that was present when the VMware image for the Linux environment was built.  This may cause problems. Enter the following command before you start this workshop:
 
 ```
-$ minikube delete
+minikube delete
 ```
 
 Output will be most likely something like this:
@@ -36,7 +36,7 @@ Please be aware that this command will delete any existing Minikube cluster!
 bwLehrpool has sufficient RAM to increase memory for Minikube, you can use this command instead:
 
 ```
-$ minikube start --cpus 2 --memory 6144 --driver docker
+minikube start --cpus 2 --memory 6144 --driver docker
 ```
 
 which will assign 6 GB of RAM.
@@ -53,19 +53,19 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
 2. Download Istio 1.12.0:
    
     ```
-	$ curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.12.0 TARGET_ARCH=x86_64 sh -
+	curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.12.0 TARGET_ARCH=x86_64 sh -
     ```
 
 3. Change into the Istio directory
    
     ```
-	$ cd istio-1.12.0
+	cd istio-1.12.0
     ```
 
 4. Install Istio:
 
     ```
-	$ bin/istioctl install --set profile=demo -y
+	bin/istioctl install --set profile=demo -y
     ```
 
    Output: 
@@ -86,7 +86,7 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
    Istio is installed into the *istio-system* namespace on Kubernetes. 
 
     ```
-    $ kubectl get pod -n istio-system
+    kubectl get pod -n istio-system
     ```
 
     Output looks like this:
@@ -101,7 +101,7 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
     The pod identifiers will be different but there should be 3 pods for egress gateway, ingress gateway, and istiod, all in status 'Running'.
 
     ```
-    $ kubectl get svc -n istio-system
+    kubectl get svc -n istio-system
     ```
 
     Output looks like this:
@@ -118,10 +118,10 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
 6. **Very important:** Enable automatic sidecar injection for default namespace
 
     ```
-	$ kubectl label namespace default istio-injection=enabled	
+	kubectl label namespace default istio-injection=enabled	
     ```
 
-   Without this setting we will not use Istio although it is installed! 
+   > Without this setting we will not use Istio although it is installed! 
 
 
 ### 3 Install Telemetry Addons
@@ -135,16 +135,16 @@ We will now install the telemetry or observability add-ons:
 While still in the istio-1.12.0 directory, issue the following commands
 
 ```
-$ kubectl apply -f samples/addons/prometheus.yaml
-$ kubectl apply -f samples/addons/grafana.yaml
-$ kubectl apply -f samples/addons/jaeger.yaml
-$ kubectl apply -f samples/addons/kiali.yaml
+kubectl apply -f samples/addons/prometheus.yaml
+kubectl apply -f samples/addons/grafana.yaml
+kubectl apply -f samples/addons/jaeger.yaml
+kubectl apply -f samples/addons/kiali.yaml
 ```
 
 Verify:
 
 ```
-$ kubectl get pod -n istio-system
+kubectl get pod -n istio-system
 ```
 
 It will take a while for all the new pods to start, this is pushing the tiny cluster to its limits.
@@ -165,7 +165,7 @@ prometheus-64fd8ccd65-2dgdc            2/2     Running   0          2m18s
 And for the services:
 
 ```
-$ kubectl get svc -n istio-system
+kubectl get svc -n istio-system
 ```
 
 Output:

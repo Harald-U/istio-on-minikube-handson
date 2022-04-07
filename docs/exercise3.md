@@ -27,7 +27,7 @@ There is a whole section on [Observability](https://istio.io/latest/docs/tasks/o
 Look at the installed Telemetry services:
 
 ```
-$ kubectl get svc -n istio-system
+kubectl get svc -n istio-system
 ```
 
 You can see that none of the Telemetry services is of type LoadBalancer or NodePort which means they are not accessible from the outside. In the following examples we will use Kubernetes [port-forwarding](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward) to compensate for this.
@@ -35,9 +35,9 @@ You can see that none of the Telemetry services is of type LoadBalancer or NodeP
 But first **start to generate some load** on your Bookinfo instance. In yet another new session enter the following commands:
 
 ```
-$ export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-$ export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
-$ watch curl http://$INGRESS_HOST:$INGRESS_PORT/productpage
+export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
+watch curl http://$INGRESS_HOST:$INGRESS_PORT/productpage
 ```
 
 Keep this running during this exercise.
@@ -47,7 +47,7 @@ Keep this running during this exercise.
 To start the Port Forwarding issue the following command in a seperate session (and keep it running):
 
 ```
-$ kubectl port-forward service/tracing  8008:80 -n istio-system 
+kubectl port-forward service/tracing  8008:80 -n istio-system 
 ```
 
 1. In a browser open the Jaeger UI at [http://localhost:8008/](http://localhost:8008/).
@@ -69,7 +69,7 @@ When you are finished with Jaeger, terminate the Port Forwarding (Linux: Ctl+C, 
 To start the Port Forwarding issue the following command in a seperate session (and keep it running):
 
 ```
-$ kubectl port-forward service/prometheus 9090:9090 -n istio-system 
+kubectl port-forward service/prometheus 9090:9090 -n istio-system 
 ```
 
 1. In a browser open the Prometheus UI at [http://localhost:9090/](http://localhost:9090/)
@@ -89,7 +89,7 @@ When you are finished with Prometheus, terminate the Port Forwarding (Linux: Ctl
 To start the Port Forwarding issue the following command in a seperate session (and keep it running):
 
 ```
-$ kubectl port-forward service/grafana  3000:3000 -n istio-system 
+kubectl port-forward service/grafana  3000:3000 -n istio-system 
 ```
 
 1. In a browser open the Grafana UI at [http://localhost:3000/](http://localhost:3000/)
@@ -112,7 +112,7 @@ When you are finished with Grafana, terminate the Port Forwarding (Linux: Ctl+C,
 To start the Port Forwarding issue the following command in a seperate session (and keep it running):
 
 ```
-$ kubectl port-forward service/kiali 20001:20001 -n istio-system
+kubectl port-forward service/kiali 20001:20001 -n istio-system
 ```
 
 1. In a browser open the Kiali dashboard at [http://localhost:20001/](http://localhost:20001/)
