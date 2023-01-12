@@ -47,7 +47,7 @@ Keep this running during this exercise.
 To start the Port Forwarding issue the following command in a seperate session (and keep it running):
 
 ```
-kubectl port-forward service/tracing  8008:80 -n istio-system 
+kubectl port-forward service/tracing 8008:80 -n istio-system 
 ```
 
 1. In a browser open the Jaeger UI at [http://localhost:8008/](http://localhost:8008/).
@@ -89,7 +89,7 @@ When you are finished with Prometheus, terminate the Port Forwarding (Linux: Ctl
 To start the Port Forwarding issue the following command in a seperate session (and keep it running):
 
 ```
-kubectl port-forward service/grafana  3000:3000 -n istio-system 
+kubectl port-forward service/grafana 3000:3000 -n istio-system 
 ```
 
 1. In a browser open the Grafana UI at [http://localhost:3000/](http://localhost:3000/)
@@ -116,7 +116,7 @@ kubectl port-forward service/kiali 20001:20001 -n istio-system
 ```
 
 1. In a browser open the Kiali dashboard at [http://localhost:20001/](http://localhost:20001/)
-2. Click on the 'Graph' tab, slect the 'default' namespace, and in the 'Display' pulldown, select 'Traffic Distribution'
+2. Click on the 'Graph' tab (1), select the 'default' namespace (2), select 'Versioned app graph' (3),  and in the 'Display' pulldown, select 'Traffic Distribution' (4):
 
     ![Kiali UI](../images/kiali1.png)
 

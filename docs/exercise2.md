@@ -70,13 +70,15 @@ Note container count in the 'READY' column. It shows 2 of 2 (2/2). This is an in
 
 ### 2 Allow external access to application:
 
-Now that the Bookinfo services are up and running, you need to make the application accessible from outside of your Kubernetes cluster, e.g. from a browser. An Istio Gateway is used for this purpose.
+Now that the Bookinfo services are up and running, you need to make the application accessible from outside of your Kubernetes cluster, e.g. from a browser. In this lab we will not use NodePorts in the Kubernetes service definitions. Instead an Istio Gateway is used for this purpose.
 
 1. Create Istio gateway definition:
 
     ```
     kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
     ```
+
+    We will see in detail what is created by this command in exercise 4 of this workshop.
 
 2. Create a LoadBalancer in Minikube: 
 
@@ -100,7 +102,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     minikube tunnel
     ```
 
-    When requested, authenticate. **Keep this session open and active!**
+    When requested, authenticate with your root password. **Keep this session open and active!**
 
     Now repeat the command:
 
@@ -127,9 +129,9 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     ![Bookinfo UI](../images/bookinfo_ui.png)
 
     Refresh the page several times and watch Book Reviews section: 
-    * no stars = v1
-    * black stars = v2
-    * red stars = v3
+    * no stars = reviews-v1
+    * black stars = reviews-v2
+    * red stars = reviews-v3
 
     **Keep your browser open on this page!**
 

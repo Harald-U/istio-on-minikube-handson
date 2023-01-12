@@ -9,9 +9,9 @@ Kubernetes helps managing microservice based applications through self-healing (
 
 In this workshop, you will learn how to install and use Istio alongside microservices using the Istio sample application [Bookinfo](https://istio.io/latest/docs/examples/bookinfo/). 
 
-[Minikube](https://minikube.sigs.k8s.io/docs/) will be used to run Kubernetes on your own workstation.
-
 ![Bookinfo w/o Istio](images/bookinfo_no_istio.png)
+
+[Minikube](https://minikube.sigs.k8s.io/docs/) will be used to run Kubernetes on your own workstation.
 
 ## Objectives 
 
@@ -37,11 +37,9 @@ These are the exercises of this workshop, go through all of them in sequence:
 
 This hands-on workshop was created and tested with
 
-* Minikube v1.24.0 (includes Kubernetes v1.22.3) 
-* Istio v1.12.0
+* Minikube v1.28.0 (includes Kubernetes v1.25.3) 
+* Istio v1.16.1
 
 ## Credits
 
 This workshop is based in part on the Istio documentation [Learn Microservices using Kubernetes and Istio](https://istio.io/latest/docs/examples/microservices-istio/) and on my own [Istio Hands-on workshop](https://harald-u.github.io/istio-handson/).
-
-&copy; Harald Uebele, 07.12.2021

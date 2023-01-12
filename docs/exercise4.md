@@ -17,7 +17,7 @@ Now we want to look at it. It has 2 parts:
 
 #### Part 1: Gateway [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#gateways) 
 
-The gateway or ingress gateway is a form of load balancer that receives incoming HTTP or TCP connections. It configures exposed ports and protocols and contains the "host" name which is the domain main the gateway is supposed to answer.
+The gateway or ingress gateway is a form of load balancer that receives incoming HTTP or TCP connections. It configures exposed ports and protocols and contains the "host" name which is the Internet domain name that the gateway is supposed to accept request for.
 
 Our example:
 
@@ -38,7 +38,7 @@ spec:
     - "*"
 ```
 
-1. The selector "istio: ingressgateway" maps to the istio-ingressgateway deployment in the istio-system namespace.
+1. The selector "istio: ingressgateway" maps to the existing istio-ingressgateway deployment in the istio-system namespace. This was created when Istio was installed.
 2. The servers section specifies HTTP protocol on port 80 and what is called a "wildcard" host "*". This means that this gateway will direct HTTP requests (unencrypted) on any IP address or domain name. This is actually bad practice but helps keeping this exercise relatively simple.
 
 #### Part 2: Virtual Service [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#virtual-services) 

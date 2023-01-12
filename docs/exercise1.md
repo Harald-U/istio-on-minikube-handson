@@ -17,13 +17,13 @@ This will start an instance with 2 virtual CPUs, 4 GB om RAM, using Docker (Desk
 
 ### NOTE: bwLehrpool
 
-There may be a "leftover" (and damaged) Minikube instance that was present when the VMware image for the Linux environment was built.  This may cause problems. Enter the following command before you start this workshop:
+> There may be a "leftover" (and damaged) Minikube instance that was present when the VMware image for the Linux environment was built.  This may cause problems. Enter the following command before you start this workshop:
 
 ```
 minikube delete
 ```
 
-Output will be most likely something like this:
+> Output will look something like this:
 
 ```
 🔥  minikube" in docker wird gelöscht...
@@ -31,7 +31,7 @@ Output will be most likely something like this:
 💀  Removed all traces of the "minikube" cluster.
 ```
 
-Please be aware that this command will delete any existing Minikube cluster!
+> Please be aware that this command will delete any existing Minikube cluster!
 
 bwLehrpool has sufficient RAM to increase memory for Minikube, you can use this command instead:
 
@@ -45,21 +45,24 @@ which will assign 6 GB of RAM.
 
 ### 2 Install Istio
 
-This workshop is based on Istio version 1.12.0  (which was released in December 2021).
+This workshop is based on Istio version 1.16.1  (which was released in December 2022).
 
 Official instructions can be found [here](https://istio.io/latest/docs/setup/getting-started/).
 
 1. Create a new directory in your home directory, e.g. 'vs' and change into it
-2. Download Istio 1.12.0:
+
+    **Note: On bwLehrpool** change into the PERSISTENCE directory before continuing with the next step.
+
+2. Download Istio 1.16.1:
    
     ```
-	curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.12.0 TARGET_ARCH=x86_64 sh -
+	curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.16.1 TARGET_ARCH=x86_64 sh -
     ```
 
 3. Change into the Istio directory
    
     ```
-	cd istio-1.12.0
+	cd istio-1.16.1
     ```
 
 4. Install Istio:
