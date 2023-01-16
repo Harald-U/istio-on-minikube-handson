@@ -1,7 +1,6 @@
 theme: jekyll-theme-minimal
 title: Istio Hands-On
 updated: 12.1.2023
-description: Manage Microservice Communication with Kubernetes and Istio Service Mesh
 logo: images/istio-logo.png
 show_downloads: False
 navigation:
