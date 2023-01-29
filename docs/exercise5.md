@@ -42,7 +42,9 @@ When you test the Bookinfo  app in your browser you can see that Book Reviews ar
 
 Have you noticed the "Sign in" button in the black title bar of the Bookinfo sample? It obviously allows you to "sign in" to the application. Of course there is no user registry and security implemented in the app. The "sign in" places a piece if information in the HTTP header.
 
-Open the Bookinfo sample **a second time in a private(!) browser tab** and sign in as user "jason" (small letters!) and anything for a password.
+Open the Bookinfo sample in a different browser and sign in as user "jason" (small letters!) and anything for a password.
+
+**Note bwLehrpool:** There is only Firefox available in bwLehrpool so this part doesn't work. Sorry about that! Continue with 'Traffic Shifting'.
 
 Now apply a new VirtualService definition on the Reviews service:
 
