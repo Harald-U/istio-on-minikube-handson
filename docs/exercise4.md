@@ -15,7 +15,7 @@ In Exercise 2, step 2 "Allow external access to application" you have applied an
 
 Now we want to look at it. It has 2 parts:
 
-#### Part 1: Gateway [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#gateways) 
+## Part 1: Gateway [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#gateways) 
 
 The gateway or ingress gateway is a form of load balancer that receives incoming HTTP or TCP connections. It configures exposed ports and protocols and contains the "host" name which is the Internet domain name that the gateway is supposed to accept request for.
 
@@ -41,7 +41,7 @@ spec:
 1. The selector "istio: ingressgateway" maps to the existing istio-ingressgateway deployment in the istio-system namespace. This was created when Istio was installed.
 2. The servers section specifies HTTP protocol on port 80 and what is called a "wildcard" host "*". This means that this gateway will direct HTTP requests (unencrypted) on any IP address or domain name. This is actually bad practice but helps keeping this exercise relatively simple.
 
-#### Part 2: Virtual Service [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#virtual-services) 
+## Part 2: Virtual Service [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#virtual-services) 
 
 A Virtual Service is used to configure the Istio traffic routing. Normally, you would use an Istio Virtual Service to add traffic routing rules to a Kubernetes service. Here we use it to configure an Istio Gateway.
 

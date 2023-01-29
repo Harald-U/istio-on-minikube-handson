@@ -3,7 +3,7 @@ layout: default
 title: 1. Setting up Minikube and Istio
 ---
 
-### 1 Create a Kubernetes instance on Minikube
+## 1 Create a Kubernetes instance on Minikube
 
 I am going to assume that you already have Minikube installed on your workstation. If this is not the case follow the instructions in the [Minikube documention](https://minikube.sigs.k8s.io/docs/start/).
 
@@ -43,7 +43,7 @@ which will assign 6 GB of RAM.
 
 **NOTE 2:** According to the [Istio documentation](https://istio.io/latest/docs/setup/platform-setup/minikube/) a Minikube instance with at least 4 virtual CPUs and 16 GB of RAM is required. I have tested this workshop with the smaller configuration and it works but of course will not win a price for high performance.
 
-### 2 Install Istio
+## 2 Install Istio
 
 This workshop is based on Istio version 1.16.1  (which was released in December 2022).
 
@@ -127,7 +127,7 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
    > Without this setting we will not use Istio although it is installed! 
 
 
-### 3 Install Telemetry Addons
+## 3 Install Telemetry Addons
 
 We will now install the telemetry or observability add-ons: 
 * [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) (Monitoring)

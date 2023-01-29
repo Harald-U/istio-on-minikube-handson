@@ -33,7 +33,7 @@ In the previous Exercise 1, section "Installing Istio", the last step was to lab
 
 This picture also shows that external communication will pass through the Istio Ingress and its associated Ingress Envoy.
 
-### 1 Deploy the application:
+## 1 Deploy the application:
 
 ```
 kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
@@ -68,7 +68,7 @@ reviews-v3-84779c7bbc-rcbr9       2/2     Running   0          89s
 
 Note container count in the 'READY' column. It shows 2 of 2 (2/2). This is an indication that the Envoy proxies have been added automatically to the pods.
 
-### 2 Allow external access to application:
+## 2 Allow external access to application:
 
 Now that the Bookinfo services are up and running, you need to make the application accessible from outside of your Kubernetes cluster, e.g. from a browser. In this lab we will not use NodePorts in the Kubernetes service definitions. Instead an Istio Gateway is used for this purpose.
 
