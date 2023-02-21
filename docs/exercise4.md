@@ -11,9 +11,9 @@ _Istio’s traffic management model relies on the Envoy proxies that are deploye
 
 ## Istio Ingress Gateway 
 
-In Exercise 2, step 2 "Allow external access to application" you have applied an Istio configuration from the file `samples/bookinfo/networking/bookinfo-gateway.yaml`. 
+In Exercise 2, step 2 "Allow external access to application" you have applied an Istio configuration from the file `samples/bookinfo/networking/bookinfo-gateway.yaml` without a lot of explanation. 
 
-Now we want to look at it. It has 2 parts:
+Now we want to look at the definition, it has 2 parts:
 
 ## Part 1: Gateway [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#gateways) 
 
@@ -80,7 +80,7 @@ The configuration specifies:
 
 * the wildcard ("*") host
 * the "bookinfo-gateway" from part 1
-* a number of routing rules
+* a number of routing rules, `/productpage` is one of them.
 
 To access our Bookinfo sample app in the browser, we use the '/productpage' URI which routes to the productpage deployment on port 9080.
 

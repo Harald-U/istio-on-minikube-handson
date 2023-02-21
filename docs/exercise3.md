@@ -30,7 +30,7 @@ Look at the installed Telemetry services:
 kubectl get svc -n istio-system
 ```
 
-You can see that none of the Telemetry services is of type LoadBalancer or NodePort which means they are not accessible from the outside. In the following examples we will use Kubernetes [port-forwarding](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward) to compensate for this.
+You can see that none of the Telemetry services is of type LoadBalancer or NodePort which means there is no simple way to access them from outside the Kubernetes cluster. In the following examples we will use Kubernetes [port-forwarding](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward) to compensate for this.
 
 But first **start to generate some load** on your Bookinfo instance. In yet another new session enter the following commands:
 
@@ -62,7 +62,7 @@ kubectl port-forward service/tracing 8008:80 -n istio-system
 
     On the left side you can see how the request is passed through the different services: coming in via Istio Ingress, Productpage to Details, back to Productpage, Productpage to Reviews, Reviews to Ratings. An the graph shows how much time is being spent in each service.
 
-When you are finished with Jaeger, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+.)
+When you are finished with Jaeger, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+C)
 
 ### Prometheus
 
@@ -82,7 +82,7 @@ kubectl port-forward service/prometheus 9090:9090 -n istio-system
 
     ![Prometheus Details](../images/prometheus2.png)
 
-When you are finished with Prometheus, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+.)
+When you are finished with Prometheus, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+C)
 
 ### Grafana
 
@@ -105,7 +105,7 @@ kubectl port-forward service/grafana 3000:3000 -n istio-system
 
 **Note:** In some of the dashboards you can see a "datasource" selector. There is a default data source selected. When you click on the pulldown you can see that there is one (1) datasource available and that is Prometheus. This means that Grafana needs the Prometheus data to display its dashboards.
 
-When you are finished with Grafana, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+.)
+When you are finished with Grafana, terminate the Port Forwarding (Linux: Ctl+C, Mac: Cmd+C)
 
 ### Kiali
 

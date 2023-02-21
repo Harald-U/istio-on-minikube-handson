@@ -7,19 +7,19 @@ title: 2. Installing Bookinfo
 
 The Bookinfo application is broken into four separate microservices:
 
-* The **productpage** microservice calls the details and reviews microservices to populate the page.
-* The **details** microservice contains book information.
-* The **reviews** microservice contains book reviews. It also calls the ratings microservice.
-* The **ratings** microservice contains book ranking information that accompanies a book review.
+* The **Productpage** microservice calls the details and reviews microservices to populate the page.
+* The **Details** microservice contains book information.
+* The **Reviews** microservice contains book reviews. It also calls the ratings microservice.
+* The **Ratings** microservice contains book ranking information that accompanies a book review.
 
 This is the end-to-end architecture of the application:
 
 ![Bookinfo w/o Istio](../images/bookinfo_no_istio.png)
   
-There are 3 versions of the reviews microservice:
-* **Version v1** doesn’t call the ratings service.
-* **Version v2** calls the ratings service and displays each rating as 1 to 5 black stars.
-* **Version v3** calls the ratings service and displays each rating as 1 to 5 red stars.
+There are 3 versions of the **Reviews** microservice:
+* **Version v1** doesn’t call the Ratings service.
+* **Version v2** calls the Ratings service and displays each rating as 1 to 5 black stars.
+* **Version v3** calls the Ratings service and displays each rating as 1 to 5 red stars.
 
 This application is polyglot, i.e., the microservices are written in different languages. It’s worth noting that these services have no dependencies on Istio, but make an interesting service mesh example, particularly because of the multitude of services, languages and versions for the reviews service.
 
@@ -27,7 +27,7 @@ This application is polyglot, i.e., the microservices are written in different l
 
 To run the sample with Istio requires no changes to the application itself. Instead, you simply need to configure and run the services in an Istio-enabled environment: 
 
-In the previous Exercise 1, section "Installing Istio", the last step was to label the `default` namespace with `istio-injection=enabled`. With this label in place, every pod deployed into the `default` namespace gets an "Envoy" sidecar injected along side each service. The resulting deployment will look like this:
+In the previous Exercise 1, section "Installing Istio", the last step was to **label** the `default` namespace with `istio-injection=enabled`. With this label in place, every pod deployed into the `default` namespace gets an "Envoy" sidecar injected along side each service. The resulting deployment will look like this:
 
 ![Bookinfo w/o Istio](../images/bookinfo_w_istio.png)
 
@@ -93,7 +93,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     It will show 'pending' for the external IP address. The ingressgateway is a Kubernetes service of type LoadBalancer. A real Load Balancer is not available on Minikube (hence the 'pending' status), but we can fake one.
 
 
-    **Note:** In public managed cloud environments (e.g. IBM Cloud) a Kubernetes service of type LoadBalancer usually gets a public (= routable in the Internet) IP address assigned automatically if one is available in the account. You can then map this public IP address to a fully qualified domain name (FQDN) in the DNS (Domain Name System) and make your Istio Ingress controller answer HTTP requests via the Internet. 
+    **Note:** In public managed cloud environments (e.g. AWS, Azure, IBM Cloud) a Kubernetes service of type LoadBalancer usually gets a public (= routable in the Internet) IP address assigned automatically if one is available in the account. You can then map this public IP address to a fully qualified domain name (FQDN) in the DNS (Domain Name System) and make your Istio Ingress controller answer HTTP requests via the Internet. 
 
 
     In a **new terminal session** enter:
@@ -114,7 +114,9 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 
     You can see that the LoadBalancer now has an external IP address which identical to the internal (CLUSTER-IP) one. Thanks to the 'minikube tunnel' still running in the other session, this internal address is suddenly reachable from your workstation. 
 
-3. Access the Bookinfo application:
+3. Access the Bookinfo application
+
+    The first two commands will determine the IP address and port required to access the application:
 
    ```
    export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
@@ -122,7 +124,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
    echo http://$INGRESS_HOST:$INGRESS_PORT/productpage
    ```
 
-    The result of the last command is the URL for your instance of the Bookinfo application, e.g. `http://10.107.101.80:80/productpage`.
+    The result of the last command is the URL for your instance of the Bookinfo application, e.g. `http://10.107.101.80:80/productpage`.  
 
     Open this URL in your browser and you should see the Bookinfo application in all its splendour:
 
@@ -132,7 +134,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     * no stars = reviews-v1
     * black stars = reviews-v2
     * red stars = reviews-v3
-
+  
     **Keep your browser open on this page!**
 
 ---

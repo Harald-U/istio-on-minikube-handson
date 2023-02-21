@@ -17,22 +17,6 @@ This will start an instance with 2 virtual CPUs, 4 GB om RAM, using Docker (Desk
 
 ### NOTE: bwLehrpool
 
-<!-- >> There may be a "leftover" (and damaged) Minikube instance that was present when the VMware image for the Linux environment was built.  This may cause problems. Enter the following command before you start this workshop:
-
-```
-minikube delete
-```
-
-> Output will look something like this:
-
-```
-🔥  minikube" in docker wird gelöscht...
-🔥  /home/student/.minikube/machines/minikube wird entfernt...
-💀  Removed all traces of the "minikube" cluster.
-```
-
-> Please be aware that this command will delete any existing Minikube cluster! -->
-
 bwLehrpool has sufficient RAM to increase memory for Minikube, you can use this command instead:
 
 ```
@@ -41,31 +25,31 @@ minikube start --cpus 2 --memory 6144 --driver docker
 
 which will assign 6 GB of RAM.
 
-**NOTE 2:** According to the [Istio documentation](https://istio.io/latest/docs/setup/platform-setup/minikube/) a Minikube instance with at least 4 virtual CPUs and 16 GB of RAM is required. I have tested this workshop with the smaller configuration and it works but of course will not win a price for high performance.
+**NOTE** According to the [Istio documentation](https://istio.io/latest/docs/setup/platform-setup/minikube/) a Minikube instance with at least 4 virtual CPUs and 16 GB of RAM is required. I have tested this workshop with the smaller configuration and it works but of course will not win a price for high performance.
 
 ## 2 Install Istio
 
-This workshop is based on Istio version 1.16.1  (which was released in December 2022).
+This workshop is based on Istio version 1.16.1 (which was released in December 2022).
 
 Official instructions can be found [here](https://istio.io/latest/docs/setup/getting-started/).
 
-1. Create a new directory in your home directory, e.g. 'vs' and change into it
+1. Download Istio 1.16.1:
 
-    **Note: On bwLehrpool** change into the PERSISTENCE directory before continuing with the next step.
-
-2. Download Istio 1.16.1:
+    **Note: On bwLehrpool** you can skip this step, Istio 1.16.1 is already downloaded in the `student` home directory!
    
     ```
 	curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.16.1 TARGET_ARCH=x86_64 sh -
     ```
 
-3. Change into the Istio directory
+2. Change into the Istio directory
    
     ```
 	cd istio-1.16.1
     ```
 
-4. Install Istio:
+    (On **bwLehrpool** this is /home/student/istio-1.16.1)
+
+3. Install Istio:
 
     ```
 	bin/istioctl install --set profile=demo -y
@@ -81,10 +65,10 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
     ✔ Installation complete  
     Making this installation the default for injection and validation.
 
-    Thank you for installing Istio 1.12.
+    Thank you for installing Istio 1.16.1.
     ```
 
-5. Verify the the Istio installation:
+4. Verify the the Istio installation:
 
    Istio is installed into the *istio-system* namespace on Kubernetes. 
 
@@ -118,7 +102,7 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
 
     Output should show 3 services, again for egress gateway, ingress gateway, and istiod.
 
-6. **Very important:** Enable automatic sidecar injection for default namespace
+5. **VERY IMPORTANT: Enable automatic sidecar injection for default namespace**
 
     ```
 	kubectl label namespace default istio-injection=enabled	
@@ -135,7 +119,7 @@ We will now install the telemetry or observability add-ons:
 * [Jaeger](https://istio.io/latest/docs/ops/integrations/jaeger/) (Distributed Tracing)
 * [Kiali](https://istio.io/latest/docs/ops/integrations/kiali/) (Istio dashboard)
 
-While still in the istio-1.12.0 directory, issue the following commands
+While still in the istio-1.16.1 directory, issue the following commands
 
 ```
 kubectl apply -f samples/addons/prometheus.yaml
