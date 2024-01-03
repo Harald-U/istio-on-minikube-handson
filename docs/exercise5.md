@@ -5,11 +5,11 @@ title: 5. Traffic Management 2
 
 ## Request Routing [&#10162;](https://istio.io/latest/docs/tasks/traffic-management/request-routing/)
 
-Remember: The Istio Bookinfo sample consists of four separate microservices. Three different versions of one of the Reviews microservice have been deployed and are running concurrently. To illustrate the problem this causes, access the Bookinfo app’s /productpage in a browser and refresh several times. You’ll notice that sometimes the book review output contains star ratings and other times it does not, sometimes the stars are black, sometimes red. This is because without an explicit default service version to route to, Istio routes requests to all available versions in a round robin fashion.
+Remember: The Istio Bookinfo sample consists of four separate microservices. Three different versions of the Reviews microservice have been deployed and are running concurrently. To illustrate the problem this causes, access the Bookinfo app’s productpage in a browser and refresh several times. You’ll notice that sometimes the book review output contains star ratings and other times it does not, sometimes the stars are black, sometimes red. This is because without an explicit default service version to route to, Kubernetes routes requests to all available versions in a round robin fashion.
 
-This task shows you how to route requests dynamically to multiple versions of a microservice (Reviews, version v1, v2, or v3).
+This task shows you how to configure Istio to route requests dynamically to multiple versions of a microservice (Reviews, version v1, v2, or v3).
 
-To route to one version only, you apply a virtual service configuration that sets the default version of the microservice. In this case, the virtual service configurations will route all traffic only to v1 of each microservice.
+To route to one version only, you apply an Istio virtual service configuration that sets the default version of the microservice. In this case, the virtual service configurations will route all traffic only to v1 of each microservice.
 
 Run the following command to apply the virtual services:
 
@@ -40,11 +40,9 @@ When you test the Bookinfo  app in your browser you can see that Book Reviews ar
 
 ## Request Routing based on Header information
 
-Have you noticed the "Sign in" button in the black title bar of the Bookinfo sample? It obviously allows you to "sign in" to the application. Of course there is no user registry and security implemented in the app. The "sign in" places a piece if information in the HTTP header.
+Have you noticed the "Sign in" button in the black title bar of the Bookinfo sample? It obviously allows you to "sign in" to the application. Of course there is no user registry and security implemented in the app. The "sign in" places a piece of information in the HTTP header.
 
-Open the Bookinfo sample in a different browser (e.g. Chromium if you use Firefox otherwise) and sign in as user "jason" (only small letters!) and anything for a password.
-
-<!--**Note bwLehrpool:** There is only Firefox available in bwLehrpool so this part doesn't work. Sorry about that! Continue with 'Traffic Shifting'.-->
+Open the Bookinfo sample in a different browser (e.g. Chromium if you normally use Firefox, or vice versa) and sign in as user "jason" (only small letters!) and anything for a password.
 
 Now apply a new VirtualService definition on the Reviews service:
 

@@ -21,7 +21,6 @@ After you complete this workshop, you’ll be able to:
 * Deploy the Bookinfo sample
 * Use metrics and tracing to observe services
 * Perform simple traffic management, such as A/B tests and canary deployments, and fault injection
-* Apply mTLS to your Service Mesh and secure access to services
 
 ## Get Started
 

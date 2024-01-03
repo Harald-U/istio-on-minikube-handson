@@ -137,7 +137,7 @@ kubectl port-forward service/kiali 20001:20001 -n istio-system
     Here you can see the Istio specific configuration applied to your microservices. In Exercise 2, step '2 Allow external access to application' you deployed a configuration from file 'samples/bookinfo/networking/bookinfo-gateway.yaml'. This YAML contains the specifications for the Gateway and VirtualService. We will look at them more closely in the next exercise.
 
 
-You can keep Kiali and the corresponding Port Forward session open since we will use it frequently.
+**You can keep Kiali and the corresponding Port Forward session open since we will use it frequently.**
 
 ---
 
