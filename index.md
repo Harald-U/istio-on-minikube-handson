@@ -37,8 +37,8 @@ These are the exercises of this workshop, go through all of them in sequence:
 
 This hands-on workshop was created and tested with
 
-* Minikube v1.28.0 (includes Kubernetes v1.25.3) 
-* Istio v1.16.1
+* Minikube v1.32.0 (includes Kubernetes v1.28.3) 
+* Istio v1.20.1
 
 ## Credits
 

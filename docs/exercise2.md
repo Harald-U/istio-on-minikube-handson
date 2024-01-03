@@ -86,7 +86,11 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 
     ```
     kubectl get service -n istio-system | grep ingress
+    ```
     
+    Output:
+
+    ```
     istio-ingressgateway   LoadBalancer   10.107.101.80  <pending> ...   
     ```
 
@@ -102,7 +106,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     minikube tunnel
     ```
 
-    When requested, authenticate with your root password. **Keep this session open and active!**
+    Wait a moment and when requested, authenticate with your root password. **Keep this session open and active!**
 
     Now repeat the command:
 
@@ -130,7 +134,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
 
     ![Bookinfo UI](../images/bookinfo_ui.png)
 
-    Refresh the page several times and watch Book Reviews section: 
+    **Refresh the page several times** and watch Book Reviews section: 
     * no stars = reviews-v1
     * black stars = reviews-v2
     * red stars = reviews-v3

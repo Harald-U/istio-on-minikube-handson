@@ -29,25 +29,25 @@ which will assign 6 GB of RAM.
 
 ## 2 Install Istio
 
-This workshop is based on Istio version 1.16.1 (which was released in December 2022).
+This workshop is based on Istio version 1.20.1 (which was released in November 2023).
 
 Official instructions can be found [here](https://istio.io/latest/docs/setup/getting-started/).
 
-1. Download Istio 1.16.1:
+1. Download Istio 1.20.1:
 
-    **Note: On bwLehrpool** you can skip this step, Istio 1.16.1 is already downloaded in the `student` home directory!
+    **Note: On bwLehrpool** you can skip this step, Istio 1.20.1 is already downloaded in the `student` home directory!
    
     ```
-	curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.16.1 TARGET_ARCH=x86_64 sh -
+	curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.20.1 TARGET_ARCH=x86_64 sh -
     ```
 
 2. Change into the Istio directory
    
     ```
-	cd istio-1.16.1
+	cd istio-1.20.1
     ```
 
-    (On **bwLehrpool** this is /home/student/istio-1.16.1)
+    (On **bwLehrpool** this is /home/student/istio-1.20.1)
 
 3. Install Istio:
 
@@ -57,15 +57,13 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
 
    Output: 
 
-    ```
-    ✔ Istio core installed                                                                                                  
-    ✔ Istiod installed                                                                                                      
-    ✔ Ingress gateways installed                                                                                            
-    ✔ Egress gateways installed                                                                                             
-    ✔ Installation complete  
-    Making this installation the default for injection and validation.
-
-    Thank you for installing Istio 1.16.1.
+    ```                                                                              
+    ✔ Istio core installed 
+    ✔ Istiod installed
+    ✔ Egress gateways installed 
+    ✔ Ingress gateways installed 
+    ✔ Installation complete
+    Made this installation the default for injection and validation.
     ```
 
 4. Verify the the Istio installation:
@@ -119,7 +117,7 @@ We will now install the telemetry or observability add-ons:
 * [Jaeger](https://istio.io/latest/docs/ops/integrations/jaeger/) (Distributed Tracing)
 * [Kiali](https://istio.io/latest/docs/ops/integrations/kiali/) (Istio dashboard)
 
-While still in the istio-1.16.1 directory, issue the following commands
+While still in the istio-1.20.1 directory, issue the following commands
 
 ```
 kubectl apply -f samples/addons/prometheus.yaml
@@ -170,7 +168,7 @@ tracing                ClusterIP      10.98.100.68     <none>        80/TCP,1668
 zipkin                 ClusterIP      10.103.150.84    <none>        9411/TCP                                                                     2m34s
 ```
 
-Jaeger deployment creates 2 services: jaeger-collector and tracing. The tracing service will later provide the Jaeger UI.
+Jaeger deployment creates 3 services: jaeger-collector, tracing, and zipkin. The tracing service will later provide the Jaeger UI.
 
 ---
 

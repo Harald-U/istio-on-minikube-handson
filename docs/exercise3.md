@@ -93,7 +93,11 @@ kubectl port-forward service/grafana 3000:3000 -n istio-system
 ```
 
 1. In a browser open the Grafana UI at [http://localhost:3000/](http://localhost:3000/)
-2. Click on the Looking Glas (search), click on the Istio folder, then select the Istio Performance Dashboard
+2. Click on the "Hamburger"menu" (1), then on "Dashboard" (2)
+
+    ![Grafana Menu](../images/grafana-menu.png)
+
+3. From the list of dashboards select the "Istio Performance Dashboard"
 
     ![Grafana UI](../images/grafana1.png)
 
@@ -121,7 +125,7 @@ kubectl port-forward service/kiali 20001:20001 -n istio-system
     ![Kiali UI](../images/kiali1.png)
 
 3. You can now see a graphical representation of your micro services including the distribution of requests amongst your services.
-    Watch the distribution of requests amongst the 3 versions the Reviews service: 1/3 = 33.3 % go to each of the versions: equal distribution or "round robin".
+    Watch the distribution of requests amongst the 3 versions the Reviews service: 1/3 = 33.3 % go to each of the versions: equal distribution or "round robin". **Note:** Kiali needs to be active for a while to show a somewhat equal distribution.  
     Also note that only v2 and v3 are making requests to the Ratings service.
 
     ![Kiali Details](../images/kiali2.png)
