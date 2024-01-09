@@ -106,7 +106,7 @@ Now that the Bookinfo services are up and running, you need to make the applicat
     minikube tunnel
     ```
 
-    Wait a moment and when requested, authenticate with your root password. **Keep this session open and active!**
+    Wait a moment and when requested, authenticate with your (sudo) password. **Keep this session open and active!**
 
     Now repeat the command:
 

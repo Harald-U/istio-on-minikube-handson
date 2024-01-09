@@ -92,7 +92,7 @@ To start the Port Forwarding issue the following command in a seperate session (
 kubectl port-forward service/grafana 3000:3000 -n istio-system 
 ```
 
-1. In a browser open the Grafana UI at [http://localhost:3000/](http://localhost:3000/)
+1. In a browser (Firefox seems to work better for Grafana than Chrome) open the Grafana UI at [http://localhost:3000/](http://localhost:3000/)
 2. Click on the "Hamburger"menu" (1), then on "Dashboard" (2)
 
     ![Grafana Menu](../images/grafana-menu.png)
