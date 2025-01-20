@@ -3,7 +3,7 @@ layout: default
 title: 5. Traffic Management 2
 ---
 
-## Request Routing [&#10162;](https://istio.io/latest/docs/tasks/traffic-management/request-routing/)
+## Request Routing [&#128279;](https://istio.io/latest/docs/tasks/traffic-management/request-routing/){:target="_blank"}
 
 Remember: The Istio Bookinfo sample consists of four separate microservices. Three different versions of the Reviews microservice have been deployed and are running concurrently. To illustrate the problem this causes, access the Bookinfo app’s productpage in a browser and refresh several times. You’ll notice that sometimes the book review output contains star ratings and other times it does not, sometimes the stars are black, sometimes red. This is because without an explicit default service version to route to, Kubernetes routes requests to all available versions in a round robin fashion.
 
@@ -87,7 +87,7 @@ There are endless possibilities with this:
 * You could secure your application with an Identity and Access Management system like Keycloak and offer different features in your application simply by evaluating HTTP Header settings added by Keycloak.
 * You can display different versions of your application depending on the make of the Browser you use or the language version requested
 
-## Traffic Shifting [&#10162;](https://istio.io/latest/docs/tasks/traffic-management/traffic-shifting/) using Weight-based Routing
+## Traffic Shifting [&#128279;](https://istio.io/latest/docs/tasks/traffic-management/traffic-shifting/){:target="_blank"} using Weight-based Routing
 
 A common use case is to migrate traffic gradually from an older version of a microservice to a new one. In Istio, you accomplish this goal by configuring a sequence of routing rules that redirect a percentage of traffic from one destination to another.
 
@@ -149,7 +149,7 @@ spec:
 In a real life situation, you would probably begin with a weight 99 for v1 and weight 1 for v3 (99:1 distribution) and gradually lower weight for v1 and increase weight for v3 until you are confident that v3 works well.
 
 
-## Fault Injection [&#10162;](https://istio.io/latest/docs/tasks/traffic-management/fault-injection/)
+## Fault Injection [&#128279;](https://istio.io/latest/docs/tasks/traffic-management/fault-injection/){:target="_blank"}
 
 Resiliency is an important aspect of any type of application: if something goes wrong, the application should handle it in a sensible manner. Simply terminating or displaying a stack trace to your end users is not a good option. This is critical for microservices because there is a lot of communication between the services, especially if there are external services involved. How can you test the behaviour of your microservices in case of an error? With Istio Fault Injection!
 

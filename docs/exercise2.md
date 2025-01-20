@@ -3,7 +3,7 @@ layout: default
 title: 2. Installing Bookinfo
 ---
 
-**Bookinfo** is the Istio sample application used throughout the [Istio documentation](https://istio.io/latest/docs/examples/bookinfo/). 
+**Bookinfo** is the Istio sample application used throughout the [Istio documentation](https://istio.io/latest/docs/examples/bookinfo/){:target="_blank"}. 
 
 The Bookinfo application is broken into four separate microservices:
 

@@ -3,7 +3,7 @@ layout: default
 title: 4. Traffic Management 1
 ---
 
-From the Istio documentation on [Traffic Management](https://istio.io/latest/docs/concepts/traffic-management/):
+From the Istio documentation on [Traffic Management](https://istio.io/latest/docs/concepts/traffic-management/){:target="_blank"}:
 
 _Istio’s traffic routing rules let you easily control the flow of traffic and API calls between services. Istio simplifies configuration of service-level properties like **circuit breakers, timeouts, and retries**, and makes it easy to set up important tasks like **A/B testing, canary rollouts, and staged rollouts** with percentage-based traffic splits. It also provides out-of-box **failure recovery features** that help make your application more robust against failures of dependent services or the network._
 
@@ -15,7 +15,7 @@ In Exercise 2, step 2 "Allow external access to application" you have applied an
 
 Now we want to look at the definition, it has 2 parts:
 
-## Part 1: Gateway [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#gateways) 
+## Part 1: Gateway [&#128279;](https://istio.io/latest/docs/concepts/traffic-management/#gateways){:target="_blank"} 
 
 The gateway or ingress gateway is a form of load balancer that receives incoming HTTP or TCP connections. It configures exposed ports and protocols and contains the "host" name which is the Internet domain name that the gateway is supposed to accept request for.
 
@@ -41,7 +41,7 @@ spec:
 1. The selector "istio: ingressgateway" maps to the existing istio-ingressgateway deployment in the istio-system namespace. This was created when Istio was installed.
 2. The servers section specifies HTTP protocol on port 80 and what is called a "wildcard" host "*". This means that this gateway will direct HTTP requests (unencrypted) on any IP address or domain name. This is actually bad practice but helps keeping this exercise relatively simple.
 
-## Part 2: Virtual Service [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#virtual-services) 
+## Part 2: Virtual Service [&#128279;](https://istio.io/latest/docs/concepts/traffic-management/#virtual-services){:target="_blank"} 
 
 A Virtual Service is used to configure the Istio traffic routing. Normally, you would use an Istio Virtual Service to add traffic routing rules to a Kubernetes service. Here we use it to configure an Istio Gateway.
 
@@ -84,7 +84,7 @@ The configuration specifies:
 
 To access our Bookinfo sample app in the browser, we use the '/productpage' URI which routes to the productpage deployment on port 9080.
 
-## Destination Rules [&#10162;](https://istio.io/latest/docs/concepts/traffic-management/#destination-rules)
+## Destination Rules [&#128279;](https://istio.io/latest/docs/concepts/traffic-management/#destination-rules){:target="_blank"}
 
 _Along with virtual services, destination rules are a key part of Istio’s traffic routing functionality. You can think of virtual services as how you route your traffic to a given destination, and then you use destination rules to configure what happens to traffic for that destination. Destination rules are applied after virtual service routing rules are evaluated, so they apply to the traffic’s “real” destination._
 

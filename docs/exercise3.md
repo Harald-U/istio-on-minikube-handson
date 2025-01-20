@@ -15,12 +15,12 @@ As requests pass through multiple services, identifying performance bottlenecks 
 
 In Exercise 1, you have installed 4 telemetry or observability add-ons: 
 
-* [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) (for Monitoring)
-* [Grafana](https://istio.io/latest/docs/ops/integrations/grafana/) (for Monitoring)
-* [Jaeger](https://istio.io/latest/docs/ops/integrations/jaeger/) (for Distributed Tracing)
-* [Kiali](https://istio.io/latest/docs/ops/integrations/kiali/) (the Istio dashboard)
+* [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/){:target="_blank"} (for Monitoring)
+* [Grafana](https://istio.io/latest/docs/ops/integrations/grafana/){:target="_blank"} (for Monitoring)
+* [Jaeger](https://istio.io/latest/docs/ops/integrations/jaeger/){:target="_blank"} (for Distributed Tracing)
+* [Kiali](https://istio.io/latest/docs/ops/integrations/kiali/){:target="_blank"} (the Istio dashboard)
 
-There is a whole section on [Observability](https://istio.io/latest/docs/tasks/observability/) in the Istio documentation.
+There is a whole section on [Observability](https://istio.io/latest/docs/tasks/observability/){:target="_blank"} in the Istio documentation.
 
 ## Accessing the Telemetry services
 
@@ -89,10 +89,9 @@ ____________________
 ✔ Installation complete     
 ```
 
-Enable tracing by applying the following configuration:
+To enable tracing, [download](../files/telemetry.yaml){:target="_blank"} or create the following file `telemetry.yaml`:
 
 ```
-$ kubectl apply -f - <<EOF
 apiVersion: telemetry.istio.io/v1
 kind: Telemetry
 metadata:
@@ -102,7 +101,13 @@ spec:
 tracing:
 - providers:
     - name: jaeger
-EOF
+```    
+
+Then apply it:
+
+```
+$ kubectl apply -f telemetry.yaml
+
 ```
 
 Check if it worked:

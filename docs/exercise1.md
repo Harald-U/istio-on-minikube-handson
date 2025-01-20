@@ -5,7 +5,7 @@ title: 1. Setting up Minikube and Istio
 
 ## 1 Create a Kubernetes instance on Minikube
 
-I am going to assume that you already have Minikube installed on your workstation. If this is not the case follow the instructions in the [Minikube documention](https://minikube.sigs.k8s.io/docs/start/).
+I am going to assume that you already have Minikube installed on your workstation. If this is not the case follow the instructions in the [Minikube documention](https://minikube.sigs.k8s.io/docs/start/){:target="_blank"}.
 
 To start a Kubernetes instance enter the following command in a shell:
 
@@ -25,13 +25,13 @@ minikube start --cpus 2 --memory 6144 --driver docker
 
 which will assign 6 GB of RAM.
 
-**NOTE** According to the [Istio documentation](https://istio.io/latest/docs/setup/platform-setup/minikube/) a Minikube instance with at least 4 virtual CPUs and 16 GB of RAM is required. I have tested this workshop with the smaller configuration and it works but of course will not win a price for high performance.
+**NOTE** According to the [Istio documentation](https://istio.io/latest/docs/setup/platform-setup/minikube/){:target="_blank"} a Minikube instance with at least 4 virtual CPUs and 16 GB of RAM is required. I have tested this workshop with the smaller configuration and it works but of course will not win a price for high performance.
 
 ## 2 Install Istio
 
-This workshop is based on Istio version 1.24.2 (which was released in November 2023).
+This workshop is based on Istio version 1.24.2 (which was released in December 2024).
 
-Official instructions can be found [here](https://istio.io/latest/docs/setup/getting-started/).
+Official instructions can be found [here](https://istio.io/latest/docs/setup/getting-started/){:target="_blank"}.
 
 1. Download Istio 1.24.2:
 
@@ -126,10 +126,10 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
 ## 3 Install Telemetry Addons
 
 We will now install the telemetry or observability add-ons: 
-* [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/) (Monitoring)
-* [Grafana](https://istio.io/latest/docs/ops/integrations/grafana/) (Monitoring)
-* [Jaeger](https://istio.io/latest/docs/ops/integrations/jaeger/) (Distributed Tracing)
-* [Kiali](https://istio.io/latest/docs/ops/integrations/kiali/) (Istio dashboard)
+* [Prometheus](https://istio.io/latest/docs/ops/integrations/prometheus/){:target="_blank"} (Monitoring)
+* [Grafana](https://istio.io/latest/docs/ops/integrations/grafana/){:target="_blank"} (Monitoring)
+* [Jaeger](https://istio.io/latest/docs/ops/integrations/jaeger/){:target="_blank"} (Distributed Tracing)
+* [Kiali](https://istio.io/latest/docs/ops/integrations/kiali/){:target="_blank"} (Istio dashboard)
 
 While still in the istio-1.20.1 directory, issue the following commands
 
