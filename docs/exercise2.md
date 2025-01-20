@@ -21,6 +21,8 @@ There are 3 versions of the **Reviews** microservice:
 * **Version v2** calls the Ratings service and displays each rating as 1 to 5 black stars.
 * **Version v3** calls the Ratings service and displays each rating as 1 to 5 red stars.
 
+In a real life scenario you would not install the 3 versions of Ratings at the same time but one after the other over time. For this demo we install them all at once.
+
 This application is polyglot, i.e., the microservices are written in different languages. It’s worth noting that these services have no dependencies on Istio, but make an interesting service mesh example, particularly because of the multitude of services, languages and versions for the reviews service.
 
 ## Deploying Bookinfo

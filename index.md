@@ -5,13 +5,13 @@ title: Overview
 
 Kubernetes helps managing microservice based applications through self-healing (by minimizing outages and disruptions), intelligent scheduling, horizontal scaling, and load balancing.
 
-[Istio](https://istio.io) is an addition to Kubernetes, also known as a service mesh. It is an open platform to connect, secure, control and observe microservices. With Istio, you can manage network traffic, load balance across microservices, enforce access policies, verify service identity, secure service communication, and observe exactly what is going on with your services.
+[Istio](https://istio.io){:target="_blank"} is an addition to Kubernetes, also known as a service mesh. It is an open platform to connect, secure, control and observe microservices. With Istio, you can manage network traffic, load balance across microservices, enforce access policies, verify service identity, secure service communication, and observe exactly what is going on with your services.
 
-In this workshop, you will learn how to install and use Istio alongside microservices using the Istio sample application [Bookinfo](https://istio.io/latest/docs/examples/bookinfo/). 
+In this workshop, you will learn how to install and use Istio alongside microservices using the Istio sample application [Bookinfo](https://istio.io/latest/docs/examples/bookinfo/){:target="_blank"}. 
 
 ![Bookinfo w/o Istio](images/bookinfo_no_istio.png)
 
-[Minikube](https://minikube.sigs.k8s.io/docs/) will be used to run Kubernetes on your own workstation.
+[Minikube](https://minikube.sigs.k8s.io/docs/){:target="_blank"} will be used to run Kubernetes on your own workstation.
 
 ## Objectives 
 
@@ -36,9 +36,9 @@ These are the exercises of this workshop, go through all of them in sequence:
 
 This hands-on workshop was created and tested with
 
-* Minikube v1.32.0 (includes Kubernetes v1.28.3) 
-* Istio v1.20.1
+* Minikube v1.35.0 (includes Kubernetes v1.32.0) 
+* Istio v1.24.2
 
 ## Credits
 
-This workshop is based in part on the Istio documentation [Learn Microservices using Kubernetes and Istio](https://istio.io/latest/docs/examples/microservices-istio/) and on my own [Istio Hands-on workshop](https://harald-u.github.io/istio-handson/).
+This workshop is based in part on the Istio documentation [Learn Microservices using Kubernetes and Istio](https://istio.io/latest/docs/examples/microservices-istio/){:target="_blank"} and on my own [Istio Hands-on workshop](https://harald-u.github.io/istio-handson/){:target="_blank"}.

@@ -29,25 +29,27 @@ which will assign 6 GB of RAM.
 
 ## 2 Install Istio
 
-This workshop is based on Istio version 1.20.1 (which was released in November 2023).
+This workshop is based on Istio version 1.24.2 (which was released in November 2023).
 
 Official instructions can be found [here](https://istio.io/latest/docs/setup/getting-started/).
 
-1. Download Istio 1.20.1:
+1. Download Istio 1.24.2:
 
-    **Note: On bwLehrpool** you can skip this step, Istio 1.20.1 is already downloaded in the `student` home directory! In this lab you will NOT work in the PERSISTENT directory. 
+    **Note: On bwLehrpool** you can skip this step, Istio 1.24.2 is already downloaded in the `student` home directory! In this lab you will NOT work in the PERSISTENT directory. 
    
     ```
-	curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.20.1 TARGET_ARCH=x86_64 sh -
+	curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.24.2 TARGET_ARCH=x86_64 sh -
     ```
 
 2. Change into the Istio directory
    
     ```
-	cd istio-1.20.1
+	cd istio-1.24.2
     ```
 
-    (On **bwLehrpool** this is /home/student/istio-1.20.1)
+    **Note:** All exercises in this lab are performed from this directory!
+
+    (On **bwLehrpool** this is /home/student/istio-1.24.2)
 
 3. Install Istio:
 
@@ -57,13 +59,25 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
 
    Output: 
 
-    ```                                                                              
-    ✔ Istio core installed 
-    ✔ Istiod installed
-    ✔ Egress gateways installed 
-    ✔ Ingress gateways installed 
-    ✔ Installation complete
-    Made this installation the default for injection and validation.
+    ```                                                                |\          
+            | \         
+            |  \        
+            |   \       
+        /||    \      
+        / ||     \     
+        /  ||      \    
+    /   ||       \   
+    /    ||        \  
+    /     ||         \ 
+    /______||__________\
+    ____________________
+    \__       _____/  
+        \_____/        
+    ✔ Istio core installed ⛵️                                                                                                           
+    ✔ Istiod installed 🧠                                                                                                               
+    ✔ Egress gateways installed 🛫                                                                                                      
+    ✔ Ingress gateways installed 🛬                                                                                                     
+    ✔ Installation complete                    
     ```
 
 4. Verify the the Istio installation:
