@@ -107,10 +107,9 @@ Then apply it:
 
 ```
 $ kubectl apply -f telemetry.yaml
-
 ```
 
-Check if it worked:
+Check the result of the command:
 
 ```
 telemetry.telemetry.istio.io/mesh-default created
@@ -133,7 +132,7 @@ export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -
 for i in $(seq 1 500); do curl -s -o /dev/null "http://$INGRESS_HOST:$INGRESS_PORT/productpage"; done
 ```
 
-1. Back in the Jaeger dashboard,refresh your browser
+1. Back in the Jaeger dashboard, refresh your browser
 1. Select 'istio-ingressgateway.istio-system' as a service in the left-hand pane.
 2. Click on 'Find Traces'.
 
@@ -151,7 +150,7 @@ for i in $(seq 1 500); do curl -s -o /dev/null "http://$INGRESS_HOST:$INGRESS_PO
 
     On the left side you can see how the request is passed through the different services: coming in via Istio Ingress, Productpage to Details, back to Productpage, Productpage to Reviews, Reviews to Ratings. An the graph shows how much time is being spent in each service.
 
-Close the Jaeger dashboard and terminate the `bin/istioctl dashboard jaeger` command.
+Close the Jaeger dashboard and terminate the `bin/istioctl dashboard jaeger` command (Linux: Ctl+C, Mac: Cmd+C).
 
 ### Prometheus
 
@@ -182,7 +181,7 @@ bin/istioctl dashboard prometheus
 
     The left part of the graph (steep curve) are the requests we created to see traces in Jaeger, the right part of the graph are the requests we create every two seconds with the "watch" command above to create load. When you refresh the browser you may notice that the curve is rising.
 
-When you are finished with Prometheus, close the Prometheus dashboard in your browser and terminate the "istioctl dashboard prometheus" command (Linux: Ctl+C, Mac: Cmd+C)
+When you are finished with Prometheus, close the Prometheus dashboard in your browser and terminate the `istioctl dashboard prometheus` command.
 
 ### Grafana
 
@@ -192,7 +191,7 @@ Open the Grafana dashboard:
 bin/istioctl dashboard grafana 
 ```
 
-2. Click on the "Hamburger"menu" (1), then on "Dashboard" (2)
+2. Click on the "Hamburger"menu" (1), then on "Dashboards" (2)
 
     ![Grafana Menu](../images/grafana-menu.png)
 
@@ -208,7 +207,7 @@ bin/istioctl dashboard grafana
 
 **Note:** In some of the dashboards you can see a "datasource" selector. There is a default data source selected. When you click on the pulldown you can see that there is one (1) datasource available and that is Prometheus. This means that Grafana needs the Prometheus data to display its dashboards.
 
-When you are finished with Grafana, terminate the istioctl command (Linux: Ctl+C, Mac: Cmd+C)
+When you are finished with Grafana, close the Grafana dasshboard in your browser and terminate the istioctl command.
 
 ### Kiali
 
@@ -218,7 +217,6 @@ Open the Kiali dashboard:
 bin/istioctl dashboard kiali
 ```
 
-1. In a browser open the Kiali dashboard at [http://localhost:20001/](http://localhost:20001/)
 2. Click on the 'Traffic Graph' tab (1), select the 'default' namespace (2), select 'Versioned app graph' (3),  and in the 'Display' pulldown (4), check 'Traffic Distribution' (5):
 
     ![Kiali UI](../images/kiali1.png)

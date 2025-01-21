@@ -12,7 +12,7 @@ minikube start
 minikube stop
 ```
 
-Create tunnel and access loadbancer, in a new terminal session. When requested, authenticate. **Keep this session open and active!**
+To create a tunnel and access a loadbancer, in a new terminal session. When requested, authenticate. **Keep this session open and active!**
 
 ```
 minikube tunnel
@@ -43,7 +43,7 @@ This will access Bookinfo every 2 seconds until terminated. Keep this running du
 ## Kiali
 
 ```
-kubectl port-forward service/kiali 20001:20001 -n istio-system
+bin/istioctl dashboard kiali
 ```
 
-In a browser open the Kiali dashboard at http://localhost:20001/
+Has to executed from the istio directory, opens Kiali in the default browser.
