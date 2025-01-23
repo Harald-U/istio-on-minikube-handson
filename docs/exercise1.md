@@ -188,6 +188,89 @@ zipkin                 ClusterIP      10.103.150.84    <none>        9411/TCP   
 
 Jaeger deployment creates 3 services: jaeger-collector, tracing, and zipkin. The tracing service will later provide the Jaeger UI.
 
+Jaeger needs some additional configuration.
+
+Install an extension provider referring to the Jaeger collector service.
+
+Start by [downloading](../files/tracing.yaml){:target="_blank"} (download to the istio directory) or creating a tracing.yaml file with this content:
+
+```
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+meshConfig:
+    enableTracing: true
+    defaultConfig:
+    tracing: {} # disable legacy MeshConfig tracing options
+    extensionProviders:
+    - name: jaeger
+    opentelemetry:
+        port: 4317
+        service: jaeger-collector.istio-system.svc.cluster.local
+```
+
+Then apply it:
+
+```
+bin/istioctl install -f ./tracing.yaml --skip-confirmation
+```
+
+Result should look like this:
+
+```
+        |\          
+        | \         
+        |  \        
+        |   \       
+      /||    \      
+     / ||     \     
+    /  ||      \    
+   /   ||       \   
+  /    ||        \  
+ /     ||         \ 
+/______||__________\
+____________________
+  \__       _____/  
+     \_____/        
+
+✔ Istio core installed ⛵️                                                                                                                             
+✔ Istiod installed 🧠                                                                                                                                 
+✔ Ingress gateways installed 🛬                                                                                                                       
+- Pruning removed resources                                                                                                                             Removed apps/v1, Kind=Deployment/istio-egressgateway.istio-system.
+  Removed /v1, Kind=Service/istio-egressgateway.istio-system.
+  Removed /v1, Kind=ServiceAccount/istio-egressgateway-service-account.istio-system.
+  Removed rbac.authorization.k8s.io/v1, Kind=RoleBinding/istio-egressgateway-sds.istio-system.
+  Removed rbac.authorization.k8s.io/v1, Kind=Role/istio-egressgateway-sds.istio-system.
+  Removed policy/v1, Kind=PodDisruptionBudget/istio-egressgateway.istio-system.
+✔ Installation complete     
+```
+
+To enable tracing, [download](../files/telemetry.yaml){:target="_blank"} or create the following file `telemetry.yaml`:
+
+```
+apiVersion: telemetry.istio.io/v1
+kind: Telemetry
+metadata:
+name: mesh-default
+namespace: istio-system
+spec:
+tracing:
+- providers:
+    - name: jaeger
+```    
+
+Then apply it:
+
+```
+$ kubectl apply -f telemetry.yaml
+```
+
+Check the result of the command:
+
+```
+telemetry.telemetry.istio.io/mesh-default created
+```
+
 ---
 
 ## >> [Continue with Exercise 2](exercise2.md)
