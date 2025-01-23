@@ -1,9 +1,9 @@
 apiVersion: telemetry.istio.io/v1
 kind: Telemetry
 metadata:
-name: mesh-default
-namespace: istio-system
+  name: mesh-default
+  namespace: istio-system
 spec:
-tracing:
-- providers:
-    - name: jaeger
+  tracing:
+  - providers:
+    - name: jaeger    

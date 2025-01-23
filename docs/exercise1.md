@@ -35,7 +35,7 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
 
 1. Download Istio 1.24.2:
 
-    **Note: On bwLehrpool** you can skip this step, Istio 1.24.2 is already downloaded in the `student` home directory! In this lab you will NOT work in the PERSISTENT directory. 
+    **Note: On bwLehrpool** you can skip this step, Istio 1.24.2 is already downloaded in the `student` home directory! There is also a directory `istio` which is a symbolic link. In this lab you will NOT work in the PERSISTENT directory. 
    
     ```
 	curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.24.2 TARGET_ARCH=x86_64 sh -
@@ -49,7 +49,11 @@ Official instructions can be found [here](https://istio.io/latest/docs/setup/get
 
     **Note:** All exercises in this lab are performed from this directory!
 
-    (On **bwLehrpool** this is /home/student/istio-1.24.2)
+    On **bwLehrpool** this is 
+    
+    ```
+    cd /home/student/istio
+    ```
 
 3. Install Istio:
 
